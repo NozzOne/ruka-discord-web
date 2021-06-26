@@ -220,14 +220,23 @@ div.table-title {
 /* fin weas pa la tabla*/
 
 /*weas typing*/
-.typing-demo {
-  width: 22ch;
+.typing-demo-comandos {
+  width: 16ch;
   animation: typing 2s steps(22), blink .5s step-end infinite alternate;
   white-space: nowrap;
   overflow: hidden;
   border-right: 3px solid;
-  font-family: monospace;
-  font-size: 2em;
+  font-family: Roboto;
+  font-size: 3em;
+}
+.typing-demo-home {
+  width: 19ch;
+  animation: typing 2s steps(22), blink .5s step-end infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
+  font-family: Roboto;
+  font-size: 3em;
 }
 
 @keyframes typing {
