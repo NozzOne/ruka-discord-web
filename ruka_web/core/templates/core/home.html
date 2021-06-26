@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <!-- {% load static %} -->
+    <!--{% load static %}-->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="{% static 'core/css/reset.css' %}">
-    <link rel="stylesheet" href="{% static 'core/css/estilos.css' %}"> -->
+    <!--<link rel="stylesheet" href="{% static 'core/css/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/estilos.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/awesome/roboto.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/awesome/all.min.css' %}">-->
+
     <link rel="stylesheet" href="../../static/core/css/reset.css">
     <link rel="stylesheet" href="../../static/core/css/estilos.css">
     <link rel="stylesheet" href="../../static/core/css/awesome/roboto.css">
@@ -15,13 +19,19 @@
 
     <title>Ruka Bot</title>
 </head>
+
 <body class="main">
     {% include './partials/_nav.html' %}
-    
+
     <section class="main contenedor">
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit ipsum impedit porro facilis repudiandae minus illum necessitatibus natus illo tenetur, earum, voluptas quos ex cupiditate recusandae dicta quibusdam possimus mollitia?</p>
+        <!--<div><h1 class="typing-demo">Bienvenido a Ruka BOT</h1></div>-->
+        <h1 class="typing-demo">Bienvenido a Ruka BOT</h1>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit ipsum impedit porro facilis repudiandae minus
+            illum necessitatibus natus illo tenetur, earum, voluptas quos ex cupiditate recusandae dicta quibusdam
+            possimus mollitia?</p>
     </section>
 
     {% include './partials/_footer.html' %}
 </body>
+
 </html>

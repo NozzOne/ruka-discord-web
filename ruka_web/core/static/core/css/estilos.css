@@ -14,6 +14,7 @@ header{
 }
 footer{
     flex: 0 0 auto;
+    background-color: #23272a;
 }
 .main{
     background-color: #2c2f33;
@@ -74,8 +75,9 @@ h1{
   font-size: 3rem;
   font-family: 'roboto';
   color: #7289da;
-  margin: 3%;
+  margin: 4%;
   margin-left: 0%;
+  margin-right: 0%;
   text-align: left;
 }
 h2{
@@ -85,9 +87,9 @@ h2{
   color: #7289da;
   margin: 1%;
 }
-.contenedor {
+.contenedor{
   margin: auto;
-  width: 50%;
+  width: 90%;
 }
 
 
@@ -216,3 +218,27 @@ div.table-title {
    text-align: right;
  }
 /* fin weas pa la tabla*/
+
+/*weas typing*/
+.typing-demo {
+  width: 22ch;
+  animation: typing 2s steps(22), blink .5s step-end infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
+  font-family: monospace;
+  font-size: 2em;
+}
+
+@keyframes typing {
+  from {
+    width: 0
+  }
+}
+    
+@keyframes blink {
+  50% {
+    border-color: transparent
+  }
+}
+/*fin weas typing*/
