@@ -16,18 +16,7 @@
     <title>Ruka Bot</title>
 </head>
 <body>
-        <div class="nav-container">
-            <div class="logo">
-                <a href="#"></a>
-            </div>
-            <nav class="site-nav">
-                <a href="{% url 'home' %}"><i class="icon fas fa-home"></i>Inicio</a>
-                <a href="{% url 'comandos' %}">Comandos</a>
-                <a href="#">Donar</a>
-                <a href="#"><i class="icon fab fa-discord"></i>soporte</a>
-                <a class="btn-invite" href="#" style="color: white;"><i class="icon fas fa-link"></i>Invitar</a>
-            </nav>
-        </div>
+    {% include './partials/_nav.html' %}
     
     <section class="main">
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit ipsum impedit porro facilis repudiandae minus illum necessitatibus natus illo tenetur, earum, voluptas quos ex cupiditate recusandae dicta quibusdam possimus mollitia?</p>
