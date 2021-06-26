@@ -1,11 +1,20 @@
 html{
-    height: 100%;
+    background-color: #3b4a81;
 }
-body{
+
+body,
+html {
+  height: 100%;
+}
+
+body {
+  background: no-repeat linear-gradient(15deg, #3b4a81 50%, #2c2f33 50.1%);
+}
+/* body{
     display: flex;
     flex-direction: column;
     height: 100%;
-}
+} */
 header{
     flex: 0 0 auto;
 }
@@ -13,11 +22,11 @@ header{
     flex: 1 0 auto;
 }
 footer{
-    flex: 0 0 auto;
+    align-self: flex-end;
     background-color: #23272a;
+    
 }
 .main{
-    background-color: #2c2f33;
     color: white;
 }
 .nav-container{
@@ -89,7 +98,7 @@ h2{
 }
 .contenedor{
   margin: auto;
-  width: 90%;
+  width: 80%;
 }
 
 
