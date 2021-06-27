@@ -1,7 +1,8 @@
 from django.shortcuts import render, get_object_or_404
-from .models import card
+from django.template import RequestContext
 from django.http import HttpResponse
-import base64
+from .models import card
+
 
 # Create your views here.
 
@@ -17,4 +18,3 @@ def get_card(request, image_id):
     value = obj.image
     image = bytes(value)
     return HttpResponse(image, content_type='image/jpeg')
-
