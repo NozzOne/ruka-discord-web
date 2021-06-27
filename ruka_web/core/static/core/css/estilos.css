@@ -188,7 +188,7 @@ footer{
   font-size: 3rem;
   font-family: 'Roboto';
   color: #7289da;
-  margin: 4%;
+  margin-top: 10%;
   margin-left: 0%;
   margin-right: 0%;
   margin-block-end: 12%;
@@ -201,6 +201,9 @@ footer{
   color: white;
   margin: 1%;
   margin-top: 5%;
+}
+.margen-top{
+  margin-top: 10%;
 }
 .contenedor{
   margin: auto;
