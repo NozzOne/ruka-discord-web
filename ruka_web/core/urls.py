@@ -1,7 +1,8 @@
 from django.urls import path
-from .views import home, comandos
+from . import views
 
 urlpatterns = [
-    path('', home, name="home"),
-    path('comandos',comandos,name ="comandos"),
+    path('', views.home, name="home"),
+    path('comandos', views.comandos ,name="comandos"),
+    path('card/<int:image_id>/image.jpg', views.get_card, name="carta")
 ]
