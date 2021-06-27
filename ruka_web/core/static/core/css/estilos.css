@@ -87,18 +87,23 @@ h1{
   margin: 4%;
   margin-left: 0%;
   margin-right: 0%;
+  margin-block-end: 12%;
   text-align: left;
 }
 h2{
   font-weight: bold;
   font-size: 2rem;
   font-family: 'roboto';
-  color: #7289da;
+  color: #23272a;
   margin: 1%;
+  margin-top: 5%;
 }
 .contenedor{
   margin: auto;
   width: 80%;
+}
+p{
+  font-family: roboto;
 }
 
 
