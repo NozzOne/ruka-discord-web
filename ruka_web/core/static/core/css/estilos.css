@@ -69,9 +69,6 @@ body {
 header{
     flex: 0 0 auto;
 }
-.main{
-    flex: 1 0 auto;
-}
 footer{
     background-color: #23272a;
     flex: 0 0 auto;
@@ -98,6 +95,7 @@ footer{
 }
 .main{
     color: white;
+    flex: 1 0 auto;
 }
 .nav-container{
     display: flex;
@@ -164,7 +162,7 @@ h2{
   font-weight: bold;
   font-size: 2rem;
   font-family: 'roboto';
-  color: #23272a;
+  color: white;
   margin: 1%;
   margin-top: 5%;
 }
@@ -174,6 +172,7 @@ h2{
 }
 p{
   font-family: 'roboto' , sans-serif;
+  font-size: 0.5cm;
 }
 
 
