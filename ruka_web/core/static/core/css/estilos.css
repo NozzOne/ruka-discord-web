@@ -200,8 +200,8 @@ footer{
   font-weight: bold;
   font-size: 2rem;
   font-family: 'Roboto';
-  color: white;
-  margin: 1%;
+  color: rgb(155, 157, 159);
+  margin: 3%;
   margin-top: 5%;
 }
 .margen-top{
@@ -343,21 +343,18 @@ div.table-title {
  /*** Table Styles **/
  
  .table-fill {
-   border-radius:3px;
+   border-radius:px;
    border-collapse: collapse;
    height: 320px;
    margin: auto;
    padding:5px;
    width: 100%;
-   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
    animation: float 5s infinite;
  }
   
  th {
    color:#D5DDE5;;
-   background:#1b1e24;
-   border-bottom:4px solid #9ea7af;
-   border-right: 1px solid #343a45;
+   background:#00a1e3;
    font-size:23px;
    font-weight: 100;
    padding:24px;
@@ -393,7 +390,7 @@ div.table-title {
  }
   
  tr:nth-child(odd) td {
-   background:#33363a;
+   background:transparent;
  }
 
  tr:last-child td:first-child {
@@ -404,6 +401,7 @@ div.table-title {
    border-bottom-right-radius:3px;
  }
   
+ 
  td {
    background:#2c2f33;
    padding:20px;
@@ -411,13 +409,9 @@ div.table-title {
    vertical-align:middle;
    font-weight:300;
    font-size:18px;
-   text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
-   
  }
  
- td:last-child {
-   border-right: 0px;
- }
+
  
  th.text-left {
    text-align: left;
@@ -446,11 +440,11 @@ div.table-title {
 
 /*weas typing*/
 .typing-demo-comandos {
-  width: 15ch;
+  width: 16ch;
   animation: typing 2s steps(22), blink .5s step-end infinite alternate;
   white-space: nowrap;
   overflow: hidden;
-  border-right: 3px solid;
+  border-right: 8px solid;
   font-family: Roboto;
   font-size: 3em;
 }
@@ -459,7 +453,7 @@ div.table-title {
   animation: typing 2s steps(22), blink .5s step-end infinite alternate;
   white-space: nowrap;
   overflow: hidden;
-  border-right: 3px solid;
+  border-right: 10px solid;
   font-family: 'Roboto';
   font-size: 3em;
 }
