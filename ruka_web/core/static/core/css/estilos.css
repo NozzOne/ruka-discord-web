@@ -92,6 +92,10 @@ footer{
   align-items: center;
   flex-grow: 1;
 }
+.contenedor{
+  margin: auto;
+  width: 65%;
+}
 .footer-right{
   display: flex;
   justify-content: center;
@@ -185,11 +189,11 @@ footer{
   font-weight: bold;
   font-size: 3rem;
   font-family: 'Roboto';
-  color: #00a1e3;
-  margin-top: 10%;
+  color: white;
+  margin-top: 8%;
   margin-left: 0%;
   margin-right: 0%;
-  margin-block-end: 12%;
+  margin-block-end: 8%;
   text-align: left;
 }
 .subtitulo{
@@ -442,7 +446,7 @@ div.table-title {
 
 /*weas typing*/
 .typing-demo-comandos {
-  width: 16ch;
+  width: 15ch;
   animation: typing 2s steps(22), blink .5s step-end infinite alternate;
   white-space: nowrap;
   overflow: hidden;
