@@ -207,6 +207,8 @@ footer{
 
 
 /* !COMIENZAN LOS CONTENEDORES DE LA PAGINA PRINCIPAL  */
+
+/* !Inicio primer contenedor */
 .main-first-container{
   height: 600px;
   display: flex;
@@ -249,6 +251,8 @@ footer{
   -webkit-box-align: center;
   align-items: center;
   margin-top: 32px;
+  justify-content: space-between;
+  width: 460px;
 }
 .main-container-btn-invite{
   display: flex;
@@ -271,7 +275,70 @@ footer{
   align-items: center;
   -webkit-box-pack: justify;
   justify-content: center;
+  /* texto */
+  font-family: 'Roboto', sans-serif;
+  font-size: 3rem;
+  font-weight: bold;
 }
+/* ANIMACION WAVE PAGINA PRINCIPAL */
+.wave {
+  width: 1000px;
+  height: 1025px;
+  position: absolute;
+  top: -25%;
+  right: -20%;
+  margin-right: -100px;
+  margin-top:100px;
+  border-radius: 35%;
+  background: #00a1e3;
+  animation: wave 15s infinite linear;
+  z-index: -1;
+}
+.wave2 {
+  width: 1000px;
+  height: 1025px;
+  position: absolute;
+  top: -25%;
+  right: -20%;
+  margin-right: -100px;
+  margin-top:100px;
+  border-radius: 35%;
+  background: rgb(2, 108, 149);
+  animation: wave 15s infinite linear;
+  animation-delay: 400ms;
+  z-index: -2;
+}
+.wave3 {
+  width: 1000px;
+  height: 1025px;
+  position: absolute;
+  top: -25%;
+  right: -20%;
+  margin-right: -100px;
+  margin-top:100px;
+  border-radius: 35%;
+  background: rgb(1, 79, 110);
+  animation: wave 15s infinite linear;
+  animation-delay: 600ms;
+  z-index: -3;
+}
+
+@keyframes wave {
+  from { transform: rotate(0deg);}
+  from { transform: rotate(360deg);}
+}
+@keyframes wave {
+  from { transform: rotate(0deg);}
+  from { transform: rotate(360deg);}
+}
+@keyframes wave {
+  from { transform: rotate(0deg);}
+  from { transform: rotate(360deg);}
+}
+/* FIN ANIMACION WAVE  */
+/* !Inicio primer contenedor */
+
+/* !Inicio segundo contenedor */
 .main-two-container{
   height: 600px;
   display: flex;
@@ -282,39 +349,6 @@ footer{
   background-color: #2c2f33;
   background-size: auto 100%;
 }
-/* !ANIMACION WAVE PAGINA PRINCIPAL */
-.wave {
-  width: 1000px;
-  height: 1025px;
-  position: absolute;
-  top: -25%;
-  right: -35%;
-  margin-right: -100px;
-  margin-top:100px;
-  border-radius: 35%;
-  background: #00a1e3;
-  animation: wave 15s infinite linear;
-  z-index: -1;
-}
-
-@keyframes wave {
-  from { transform: rotate(0deg);}
-  from { transform: rotate(360deg);}
-}
-
-  
-  @keyframes wave {
-    from { transform: rotate(0deg);}
-    from { transform: rotate(360deg);}
-  }
-  
-
-
-@keyframes wave {
-  from { transform: rotate(0deg);}
-  from { transform: rotate(360deg);}
-}
-/* !FIN ANIMACION WAVE  */
 /* !FIN CONTENEDORES DE LA PAGINA PRINCIPAL  */
 
 
@@ -469,3 +503,17 @@ div.table-title {
   }
 }
 /*fin weas typing*/
+
+
+/*! MEDIA QUERY */
+
+
+/* Tablets en horizonal y escritorios normales */
+@media (min-width: 768px) and (max-width: 1199px) { ... }
+ 
+/* Móviles en horizontal o tablets en vertical */
+@media (max-width: 767px) { ... }
+ 
+/* Móviles en vertical */
+
+@media (max-width: 480px) { ... }

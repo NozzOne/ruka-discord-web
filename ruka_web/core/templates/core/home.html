@@ -5,7 +5,7 @@
     <!--{% load static %}-->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <!--<link rel="stylesheet" href="{% static 'core/css/reset.css' %}">
     <link rel="stylesheet" href="{% static 'core/css/estilos.css' %}">
     <link rel="stylesheet" href="{% static 'core/css/awesome/roboto.css' %}">
@@ -15,8 +15,9 @@
     <link rel="stylesheet" href="../../static/core/css/awesome/fonts.css">
     <link rel="stylesheet" href="../../static/core/css/awesome/all.min.css">
     <link rel="shortcut icon" href="../../static/core/img/icon.png" />
-
-    <title>Ruka | Aburriento?, Qué es eso?</title>
+    
+    <link rel="stylesheet" href="../../static/core/css/animate.css">
+    <title>Ruka bot | Inicio</title>
 </head>
 
 <body>
@@ -32,13 +33,16 @@
                     Ruka Bot contiene más de 80.000 cartas de tus animes favoritos, además contiene comandos de interacción, diversión, administración y utilidad.
                 </div>
                 <div class="main-container-btn">
-                    <a class="main-container-btn-invite" href="#" style="color: white;">¡Invitar!</a>
+                    <a data-wow-duration="5s" data-wow-delay="3s" class="main-container-btn-invite wow pulse infinite" href="#" style="color: white;">¡Invitar!</a>
+                    <a class="main-container-btn-invite" href="#" style="color: white; background: none;">Ver colección</a>
                 </div>
             </div>
             <div class="wave"></div>
+            <div class="wave2"></div>
+            <div class="wave3"></div>
         </div>
         <div class="separator">
-            <p>separador</p>
+            ¡Características!
         </div>
         <div class="main-two-container">
 
@@ -46,6 +50,11 @@
     </section>
 
     {% include './partials/_footer.html' %}
+
+    <script src="../../static/core/js/wow.js"></script>
+    <script>
+        new WOW().init();
+    </script>
 </body>
 
 </html>
