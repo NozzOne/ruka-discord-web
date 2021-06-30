@@ -58,6 +58,13 @@ html {
 header{
     flex: 0 0 auto;
 }
+
+body{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow-x: hidden;
+}
 footer{
     margin-top: 2em;
     background-color: #23272a;
@@ -197,21 +204,7 @@ footer{
 .margen-top{
   margin-top: 10%;
 }
-.fondo-flex{
-  background: no-repeat linear-gradient(10deg, transparent 50%, #3b4a81 50.1%);
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  z-index: -2;
-}
 
-.fondo-flex{
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  overflow-x: hidden;
-  z-index: -2;
-}
 
 /* !COMIENZAN LOS CONTENEDORES DE LA PAGINA PRINCIPAL  */
 .main-first-container{
@@ -224,7 +217,6 @@ footer{
   background: url(./assets/home-first-container.webp) right bottom no-repeat;
   background-size: auto 100%;
   width: 80%;
-  z-index: 3;
 }
 .main-container-text{
   margin: 0px auto;
@@ -279,7 +271,6 @@ footer{
   align-items: center;
   -webkit-box-pack: justify;
   justify-content: center;
-  z-index: 4;
 }
 .main-two-container{
   height: 600px;
@@ -303,7 +294,7 @@ footer{
   border-radius: 35%;
   background: #00a1e3;
   animation: wave 15s infinite linear;
-  z-index: 1;
+  z-index: -1;
 }
 
 @keyframes wave {
