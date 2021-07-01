@@ -204,6 +204,12 @@ footer{
 .margen-top{
   margin-top: 10%;
 }
+.fondo-flex{
+  background: no-repeat linear-gradient(10deg, transparent 50%, #3b4a81 50.1%);
+  display: flex;
+  flex-direction: column;
+  height: 80%;
+}
 
 
 /* !COMIENZAN LOS CONTENEDORES DE LA PAGINA PRINCIPAL  */
@@ -580,15 +586,6 @@ div.table-title {
   overflow: hidden;
   border-right: 8px solid;
   font-family: Roboto;
-  font-size: 3em;
-}
-.typing-demo-home {
-  width: 19ch;
-  animation: typing 2s steps(22), blink .5s step-end infinite alternate;
-  white-space: nowrap;
-  overflow: hidden;
-  border-right: 10px solid;
-  font-family: 'Roboto';
   font-size: 3em;
 }
 
