@@ -333,7 +333,7 @@ footer{
 
 /* !Inicio segundo contenedor */
 .main-two-container{
-  height: 600px;
+  height:800px;
   display: flex;
   flex-direction: column;
   -webkit-box-pack: center;
@@ -442,7 +442,14 @@ footer{
   white-space: break-spaces;
   word-wrap: break-word;
 }
-
+.noselect{
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+   -khtml-user-select: none; /* Konqueror HTML */
+     -moz-user-select: none; /* Old versions of Firefox */
+      -ms-user-select: none; /* Internet Explorer/Edge */
+          user-select: none;
+}
 /* !FIN CONTENEDORES DE LA PAGINA PRINCIPAL  */
 
 
