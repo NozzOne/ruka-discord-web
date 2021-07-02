@@ -75,6 +75,18 @@ footer{
     padding: 0vmin 50px;
     margin-top: 50px;
 }
+code{
+  background-color: #3e4550;
+  padding: 1px 5px;
+  border-radius: 5px;
+  margin-right: 3px;
+}
+parametro{
+  background-color: #243b5a;
+  padding: 1px 5px;
+  border-radius: 5px;
+  margin-right: 3px;
+}
 
 .footer-container{
   display: flex;
@@ -197,7 +209,7 @@ footer{
   font-weight: bold;
   font-size: 2rem;
   font-family: 'Roboto';
-  color: rgb(155, 157, 159);
+  color: rgb(210, 210, 211);
   margin: 3%;
   margin-top: 5%;
 }
@@ -460,7 +472,6 @@ footer{
 
 
 /* !weas pa la tabla*/
-
 div.table-title {
     display: block;
    margin: auto;
@@ -576,6 +587,41 @@ div.table-title {
  td.text-right {
    text-align: right;
  }
+/* tabla responsive*/
+@media screen and (max-width: 600px) {
+  .subtitulo{
+    font-weight: bold;
+    font-size: 2rem;
+    font-family: 'Roboto';
+    color: rgb(203, 206, 209);
+    margin-top: 15%;
+    margin-block-end: 15%;
+  }
+  table {
+      width:100%;
+  }
+  thead {
+      display: none;
+  }
+  tr:nth-of-type(2n) {
+      background-color: inherit;
+  }
+  tr td:first-child {
+      background: #014297;
+      font-weight:bold;
+      font-size:1.3em;
+  }
+  tbody td {
+      display: block;
+      text-align:center;
+  }
+  tbody td:before {
+      content: attr(data-th);
+      display: block;
+      text-align:center;
+  }
+}
+
 /* fin weas pa la tabla*/
 
 /*weas typing*/
