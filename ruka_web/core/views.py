@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.template import RequestContext
 from django.http import HttpResponse, JsonResponse
-from django.shortcuts import redirect
+from django.shortcuts import redirect, reverse
 from .models import Card
 import requests
 
@@ -11,8 +11,11 @@ def home(request):
     return render(request, 'core/home.html')
 
 def comandos(request):
-
     return render(request, 'core/comandos.html')
+
+def user(request, id):
+    user_data = request.session['user']
+    return render(request, 'core/user.html', {"user": user_data['username']})
 
 def get_cardimage(request, image_id):
     obj = Card.objects.get(id=image_id)
@@ -28,7 +31,9 @@ def discord_login(request: HttpResponse):
 def discord_login_redirect(request: HttpResponse):
     code = request.GET.get('code')
     user = exchange_code(code)
-    return JsonResponse({"user": user})
+    request.session['user'] = user
+    return redirect(f'/user/{user["id"]}')
+
 
 def exchange_code(code: str):
     data = {

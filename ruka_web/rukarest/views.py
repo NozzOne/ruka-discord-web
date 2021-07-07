@@ -29,14 +29,12 @@ def cartas_usuario(request, id):
         serializer = CardInstanceSerializer(user, many=True)
         return Response(serializer.data)
 
-# SELECT 
-#     c.id,
-#     c.name,
-#     c.series,
-#     c.value,
-#     ci.code_id,
-#     ci.favorite,
-#     ci.durability
-# FROM cardinstance ci 
-# INNER JOIN card c ON ci.card_id = c.id
-# WHERE OWNER_ID = ci.owner_id
+@csrf_exempt
+@api_view(['GET'])
+@permission_classes((IsAuthenticated,))
+def getcard(request, id):
+    if request.method == 'GET':
+        carta = Card.objects.filter(card_id=id)
+        serializer = CardSerializer(carta, many=True)
+        return Response(serializer.data)
+

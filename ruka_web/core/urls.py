@@ -4,5 +4,6 @@ from . import views
 urlpatterns = [
     path('', views.home, name="home"),
     path('comandos', views.comandos ,name="comandos"),
-    path('card/<int:image_id>/image.jpg', views.get_cardimage, name="carta")
+    path('card/<int:image_id>/image.jpg', views.get_cardimage, name="carta"),
+    path('user/<int:id>', views.user, name="Coleccion de usuario")
 ]

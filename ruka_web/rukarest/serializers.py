@@ -2,9 +2,11 @@ from rest_framework import serializers
 from core.models import Card, Cardinstance, User
 
 class CardSerializer(serializers.ModelSerializer):
+
     class Meta:
         model = Card
-        fields =  ['name', 'series', 'value', 'image']
+        fields =  ['card_id', 'name', 'series', 'value']
+
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:

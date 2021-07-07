@@ -4,16 +4,17 @@ from django.db import models
 
 # ! obtener datos de la carta
 class Card(models.Model):
+    card_id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=255)
     series = models.CharField(max_length=255)
     value = models.IntegerField()
-    image = models.BinaryField()
 
     class Meta:
+        managed = True
         db_table = 'card'
 
     def __repr__(self):
-        return "name='%s', series='%s', value='%s', image='https://ruka.life/card/%s/image.jpg'" % (self.name, self.series, self.value, self.id)
+        return "name='%s', series='%s', value='%s', image='%s'" % (self.name, self.series, self.value, self.card_id)
 
 
 class User(models.Model):
