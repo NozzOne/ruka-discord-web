@@ -85,7 +85,6 @@ parametro{
   background-color: #243b5a;
   padding: 1px 5px;
   border-radius: 5px;
-  margin-right: 3px;
 }
 
 .footer-container{
@@ -221,6 +220,7 @@ parametro{
   display: flex;
   flex-direction: column;
   height: 80%;
+  width: 100%;
 }
 
 
@@ -588,7 +588,15 @@ div.table-title {
    text-align: right;
  }
 /* tabla responsive*/
-@media screen and (max-width: 600px) {
+
+@media screen and (max-width: 610px) {
+  .responsive-table {
+    display: block;
+    overflow-x: auto;
+  }
+}
+
+/* @media screen and (max-width: 600px) {
   .subtitulo{
     font-weight: bold;
     font-size: 2rem;
@@ -620,7 +628,7 @@ div.table-title {
       display: block;
       text-align:center;
   }
-}
+} */
 
 /* fin weas pa la tabla*/
 
@@ -644,6 +652,31 @@ div.table-title {
 @keyframes blink {
   50% {
     border-color: transparent
+  }
+}
+
+@media screen and (max-width: 610px) {
+
+  .typing-demo-comandos {
+    width: 4.7cm;
+    animation: typing 2s steps(22), blink .5s step-end infinite alternate;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 5px solid;
+    font-family: Roboto;
+    font-size: 2em;
+  }
+  
+  @keyframes typing {
+    from {
+      width: 0
+    }
+  }
+      
+  @keyframes blink {
+    50% {
+      border-color: transparent
+    }
   }
 }
 /*fin weas typing*/
