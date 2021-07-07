@@ -590,7 +590,7 @@ div.table-title {
 /* tabla responsive*/
 
 @media screen and (max-width: 610px) {
-  table {
+  .responsive-table {
     display: block;
     overflow-x: auto;
   }
