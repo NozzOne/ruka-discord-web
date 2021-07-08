@@ -4,9 +4,113 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Usuario</title>
+    <link rel="stylesheet" href="../../static/core/css/estilos.css">
+    <link rel="stylesheet" href="../../static/core/css/awesome/fonts.css">
+    <link rel="stylesheet" href="../../static/core/css/awesome/all.min.css">
+    <script
+    src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+    integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
+    crossorigin="anonymous"></script>
+
+    <title>Ruka Bot | {{user.username}}</title>
 </head>
 <body>
-    <h1>Hola {% user %}</h1>
+    {% include './partials/_nav.html'%}
+    <!-- <div class="user-profile-container">
+        <h1>Hola {{ user.username }}</h1>
+    </div> -->
+    <div class="user-container">
+        <div class="user-profile">
+            <div class="user-profile-info">
+                <div class="user-profile-avatar">
+                    <img src="https://cdn.discordapp.com/avatars/{{user.id}}/{{user.avatar}}.webp?size=256" alt="{{user.name}}">
+                </div>
+                <h1>{{user.username}}</h1>
+            </div>
+        </div>
+    </div>
+    <div class="user-profile-tabs">
+        <button class="tablink" onclick="openPage('coleccion', this)" autofocus style="color:white;border-bottom:2px #00a1e3 solid;">Colección</button>
+        <button class="tablink" onclick="openPage('whislist', this)" >Lista de deseos</button>
+        <button class="tablink" onclick="openPage('inventario', this)">Inventario</button>
+    </div>
+
+
+
+    <div id="coleccion" class="tabcontent inventario">
+        <div class="coleccion">
+            {% for card in cards %}
+            <div class="discord-embed" style="border-color: hsl(34, calc(var(--saturation-factor, 1) * 100%), 66.1%); width: 250px; height: 100%;">
+                <div class="discord-data">
+                    <div class="embedtitle">Revisión</div>
+                    <div class="embedfield">
+                        <div class="embedsubfield" style="grid-column: 1 / 5;">
+                            <div class="embedfieldname">Nombre:</div>
+                            <div class="embedfieldvalue">
+                                <code class="inline">{{card.card__name}} {{ card.favorite }}</code>
+                            </div>
+                        </div>
+                        <div class="embedsubfield" style="grid-column: 5 / 9;">
+                            <div class="embedfieldname">Aparición:</div>
+                            <div class="embedfieldvalue">
+                                <code class="inline">{{card.card__series}}</code>
+                            </div>
+                        </div>
+                        <div class="embedsubfield" style="grid-column: 9 / 13;">
+                            <div class="embedfieldname">Durabilidad:</div>
+                            <div class="embedfieldvalue">
+                                <code class="inline">{{card.durability}}</code>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="embedimage noselect" href="javascript:;" style="width: 214px; height: 200px;""><img src="{% url 'carta' card.card_id %}" style="width: 214px; height: 300px;" alt="{{card.name}}"></a>
+                    <div class="embedfooter">
+                        <span class="embedfootertext">{{user.username}} - {{card.code_id}}</span>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div id="whislist" class="tabcontent">
+        <h1>chao</h1>
+    </div>
+
+    <div id="inventario" class="tabcontent">
+        <h1>nani</h1>
+    </div>
+
+
+
+    <script>
+        function openPage(pageName, elmnt) {
+            // Hide all elements with class="tabcontent" by default */
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+
+            // Remove the background color of all tablinks/buttons
+            tablinks = document.getElementsByClassName("tablink");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].style.backgroundColor = "";
+                tablinks[i].style.borderBottom = "none";
+                tablinks[i].style.color = ""
+
+            }
+
+            // Show the specific tab content
+            document.getElementById(pageName).style.display = "block";
+            elmnt.style.borderBottom = "2px #00a1e3 solid";
+            elmnt.style.color = "white"
+            }
+
+            // Get the element with id="defaultOpen" and click on it
+            document.getElementById("defaultOpen").click();
+            
+
+    </script>
 </body>
 </html>

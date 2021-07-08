@@ -20,7 +20,7 @@
     <link rel="shortcut icon" href="../../static/core/img/icon.png" />
     <link rel="stylesheet" href="../../static/core/css/animate.css">
 
-    <title>Ruka bot | Inicio</title>
+    <title>Ruka Bot | Inicio</title>
 </head>
 
 <body>
@@ -35,7 +35,11 @@
                 </div>
                 <div class="main-container-btn">
                     <a data-wow-duration="5s" data-wow-delay="3s" class="main-container-btn-invite wow pulse infinite" href="https://discord.com/oauth2/authorize?client_id=749462161713266738&scope=bot&response_type=code" target=_blank style="color: white;">¡Invitar!</a>
-                    <a class="main-container-btn-invite" href="{% url 'oauth_login' %}" style="color: white; background: none;">Ver colección</a>
+                    {% if 'username' in user %}
+                        <a class="main-container-btn-invite" href="{% url 'coleccion' user.id %}" style="color: white; background: none;">Ver colección</a>
+                    {% else %}
+                        <a class="main-container-btn-invite" href="{% url 'oauth_login' %}" style="color: white; background: none;">Ver colección</a>
+                    {% endif %}
                 </div>
             </div>
             <div class="wave"></div>

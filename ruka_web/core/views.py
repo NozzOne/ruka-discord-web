@@ -2,25 +2,36 @@ from django.shortcuts import render, get_object_or_404
 from django.template import RequestContext
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import redirect, reverse
-from .models import Card
+from .models import Card, Cardinstance
 import requests
 
 # Create your views here.
 
 def home(request):
-    return render(request, 'core/home.html')
+    if 'user' in request.session:
+        data = request.session['user']
+        return render(request, 'core/home.html', {"user": data})
+    else:
+        return render(request, 'core/home.html')
 
 def comandos(request):
     return render(request, 'core/comandos.html')
 
 def user(request, id):
-    user_data = request.session['user']
-    return render(request, 'core/user.html', {"user": user_data['username']})
+    data = request.session['user']
+    cards = Cardinstance.objects.select_related('card').filter(owner=id).values('card_id','code_id',  'card__name', 'card__series', 'durability', 'favorite', 'owner')
+    print(cards)
+    return render(request, 'core/user.html', {"user": data, "cards": cards})
 
-def get_cardimage(request, image_id):
-    obj = Card.objects.get(id=image_id)
+def logout(request):
+    del request.session['user']
+    return redirect(home)
+
+def get_cardimage(request, id):
+    obj = Card.objects.get(card_id=id)
     value = obj.image
     image = bytes(value)
+    
     return HttpResponse(image, content_type='image/jpeg')
 
 auth_url_discord = "https://discord.com/api/oauth2/authorize?client_id=749462161713266738&redirect_uri=http%3A%2F%2F127.0.0.1%3A8000%2Foauth2%2Flogin%2Fredirect&response_type=code&scope=identify"

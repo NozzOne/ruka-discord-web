@@ -8,14 +8,13 @@ class Card(models.Model):
     name = models.CharField(max_length=255)
     series = models.CharField(max_length=255)
     value = models.IntegerField()
+    image = models.BinaryField()
 
     class Meta:
         managed = True
         db_table = 'card'
-
-    def __repr__(self):
-        return "name='%s', series='%s', value='%s', image='%s'" % (self.name, self.series, self.value, self.card_id)
-
+    def __str__(self):
+        return self.card_id, self.name, self.value, self.image
 
 class User(models.Model):
     user_id = models.BigIntegerField(primary_key=True)
@@ -28,8 +27,8 @@ class User(models.Model):
         managed = True
         db_table = 'person'
     
-    def __repr__(self):
-        return "user_id= '%s', balance='%s', created_at='%s', capacity='%s', suscription='%s'" % (self.user_id, self.balance, self.created_at, self.capacity, self.suscription)
+    def __str__(self):
+        return self.user_id, self.balance, self.created_at, self.capacity, self.suscription
 
 class Cardinstance(models.Model):
     code_id = models.CharField(primary_key=True, max_length=6)
@@ -42,6 +41,7 @@ class Cardinstance(models.Model):
     class Meta:
         managed = True
         db_table = 'cardinstance'
-
-    def __repr__(self):
-        return "card_id= '%s', code_id= '%s', durability= '%s', favorite= '%s', owner_id= '%s', number= '%s'" % (self.card_id, self.code_id, self.durability, self.favorite, self.owner_id, self.number)
+        
+    def __str__(self):
+        return self.code_id, self.card, self.durability, self.favorite, self.owner, self.number
+        
