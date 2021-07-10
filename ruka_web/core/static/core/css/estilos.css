@@ -112,7 +112,7 @@ parametro{
 .footer-right > a{
   margin: 20px;
   text-decoration: none;
-  color: #b9b9b9;
+  color: white;
   text-transform: uppercase;
   font-size: 15px;
   font-weight: 450;
@@ -149,7 +149,7 @@ parametro{
 .site-nav > a{
     margin: 20px;
     text-decoration: none;
-    color: #b9b9b9;
+    color: white;
     text-transform: uppercase;
     font-size: 15px;
     font-weight: 450;
@@ -529,10 +529,6 @@ parametro{
   border-color: none;
 }
 
-.tablink:focus{
-  border-bottom: 2px #00a1e3 solid;
-  color: white;
-}
 
 
 .coleccion{
@@ -540,7 +536,6 @@ parametro{
   display: grid; 
   grid-auto-columns: 1fr; 
   grid-template-columns: 1fr 1fr 1fr 1fr; 
-  grid-template-rows: 1fr 1fr 1fr 1fr; 
   gap: 20px 20px; 
   grid-template-areas: 
     ". . . . "
@@ -548,11 +543,26 @@ parametro{
     ". . . . "
     ". . . . ";
 }
+
 .inventario{
   margin-top: 200px;
   display: flex;
+  flex-direction: column;
   width: 90%;
   margin: auto;
+}
+.pagination-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pagination{
+  display: flex;
+  margin-left: 15px;
+  
+}
+.pagination li{
+  margin-left: 15px;
 }
 /* ! FIN PAGINA DEL USUARIO */
 

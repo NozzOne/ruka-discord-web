@@ -3,12 +3,16 @@ from django.template import RequestContext
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import redirect, reverse
 from .models import Card, Cardinstance
-import requests
+from django.core import serializers
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
-# Create your views here.
+from colorthief import ColorThief
+import requests, io
+
 
 def home(request):
     if 'user' in request.session:
+        
         data = request.session['user']
         return render(request, 'core/home.html', {"user": data})
     else:
@@ -18,10 +22,31 @@ def comandos(request):
     return render(request, 'core/comandos.html')
 
 def user(request, id):
+
     data = request.session['user']
-    cards = Cardinstance.objects.select_related('card').filter(owner=id).values('card_id','code_id',  'card__name', 'card__series', 'durability', 'favorite', 'owner')
-    print(cards)
-    return render(request, 'core/user.html', {"user": data, "cards": cards})
+    if data['avatar'] is None:
+        r = requests.get("https://discord.com/assets/1f0bfc0865d324c2587920a7d80c609b.png")
+    else:
+        r = requests.get(f'https://cdn.discordapp.com/avatars/{data["id"]}/{data["avatar"]}.webp?size=256')
+        
+    f = io.BytesIO(r.content)
+    color_thief = ColorThief(f)
+    color = color_thief.get_color(quality=1)
+
+
+    cards_list = Cardinstance.objects.select_related('card').filter(owner=id).values('card_id','code_id',  'card__name', 'card__series', 'durability', 'favorite', 'owner')
+    page = request.GET.get('page', 1)
+    
+    paginator = Paginator(cards_list, 2)
+
+    try:
+        cards = paginator.page(page)
+    except PageNotAnInteger:
+        cards = paginator.page(1)
+    except EmptyPage:
+        cards = paginator.page(paginator.num_pages)
+
+    return render(request, 'core/user.html', {"user": data, "cards": cards, "color": color})
 
 def logout(request):
     del request.session['user']
