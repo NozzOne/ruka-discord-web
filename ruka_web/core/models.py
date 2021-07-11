@@ -44,4 +44,27 @@ class Cardinstance(models.Model):
         
     def __str__(self):
         return self.code_id, self.card, self.durability, self.favorite, self.owner, self.number
-        
+
+class Shop(models.Model):
+    item_id = models.IntegerField(primary_key=True)
+    name = models.CharField(max_length=255)
+    cost = models.IntegerField()
+    description = models.CharField(max_length=255)
+
+    class Meta:
+        managed = True
+        db_table = 'shop'
+    def __str__(self):
+        return self.item_id, self.name, self.cost, self.description
+
+class Inventory(models.Model):
+    owner_id = models.ForeignKey(User, on_delete=models.CASCADE)
+    item_id = models.ForeignKey(Shop, on_delete=models.CASCADE)
+    amount = models.IntegerField()
+
+    class Meta:
+        managed = True
+        db_table = 'inventory'
+    
+    def __str__(self):
+        return self.owner_id, self.item_id, self.amount

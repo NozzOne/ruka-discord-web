@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.template import RequestContext
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import redirect, reverse
-from .models import Card, Cardinstance
+from .models import Card, Cardinstance, Inventory, Shop
 from django.core import serializers
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
@@ -21,8 +21,8 @@ def home(request):
 def comandos(request):
     return render(request, 'core/comandos.html')
 
-def user(request, id):
 
+def user(request, id):
     data = request.session['user']
     if data['avatar'] is None:
         r = requests.get("https://discord.com/assets/1f0bfc0865d324c2587920a7d80c609b.png")
@@ -34,19 +34,11 @@ def user(request, id):
     color = color_thief.get_color(quality=1)
 
 
-    cards_list = Cardinstance.objects.select_related('card').filter(owner=id).values('card_id','code_id',  'card__name', 'card__series', 'durability', 'favorite', 'owner')
-    page = request.GET.get('page', 1)
-    
-    paginator = Paginator(cards_list, 2)
-
-    try:
-        cards = paginator.page(page)
-    except PageNotAnInteger:
-        cards = paginator.page(1)
-    except EmptyPage:
-        cards = paginator.page(paginator.num_pages)
+    cards = Cardinstance.objects.select_related('card').filter(owner=id).values('card_id','code_id',  'card__name', 'card__series', 'durability', 'favorite', 'owner', 'number')
 
     return render(request, 'core/user.html', {"user": data, "cards": cards, "color": color})
+
+
 
 def logout(request):
     del request.session['user']
