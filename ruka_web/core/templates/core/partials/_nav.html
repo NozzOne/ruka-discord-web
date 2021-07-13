@@ -10,10 +10,15 @@
 
         {% if 'username' in user %}
             <a class="btn-invite" href="{% url 'coleccion' user.id %}"><i class="icon fas fa-list-ul"></i>Colección</a>
-            <a href="{% url 'logout' %}"><i class="icon fas fa-sign-out-alt"></i>Salir</a>
+            <a href="{% url 'logout' %}" style="margin: 10px;"><i class="icon fas fa-sign-out-alt"></i>Salir</a>
         {% else %}
             <a class="btn-invite" href="{% url 'oauth_login' %}" style="color: white;"><i class="icon fas fa-list-ul"></i>Colección</a>
         {% endif %}
-        
     </nav>
+    <div class="hamburger">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </div>
 </div>
+<script src="../../../static/core/js/nav.js"></script>

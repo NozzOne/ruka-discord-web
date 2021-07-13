@@ -47,6 +47,7 @@ class Cardinstance(models.Model):
 
 class Shop(models.Model):
     item_id = models.IntegerField(primary_key=True)
+    emoji = models.CharField(max_length=10)
     name = models.CharField(max_length=255)
     cost = models.IntegerField()
     description = models.CharField(max_length=255)
@@ -61,6 +62,7 @@ class Inventory(models.Model):
     owner_id = models.ForeignKey(User, on_delete=models.CASCADE)
     item_id = models.ForeignKey(Shop, on_delete=models.CASCADE)
     amount = models.IntegerField()
+
 
     class Meta:
         managed = True

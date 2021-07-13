@@ -23,12 +23,12 @@
             <div class="user-profile-info">
                 <div class="user-profile-avatar">
                     {% if user.avatar is None %}
-                    <img style="border-radius: 50%;" src="https://discord.com/assets/1f0bfc0865d324c2587920a7d80c609b.png" alt="{{user.name}}">
+                    <img src="https://discord.com/assets/1f0bfc0865d324c2587920a7d80c609b.png" alt="{{user.name}}">
                     {% else %}
-                    <img style="border-radius: 50%;" src="https://cdn.discordapp.com/avatars/{{user.id}}/{{user.avatar}}.webp?size=256" alt="{{user.name}}">
+                    <img src="https://cdn.discordapp.com/avatars/{{user.id}}/{{user.avatar}}.webp?size=256" alt="{{user.name}}" width="256" height="256">
                     {% endif %}
+                    <h1>{{user.username}}</h1>
                 </div>
-                <h1>{{user.username}}</h1>
             </div>
         </div>
     </div>
@@ -44,21 +44,21 @@
             <table class="table" id="table_id">
                 <thead>
                     <tr class="th-container noselect"> 
-                        <th data-orderable="false" style="color: rgb{{color}}; border-bottom: 2px rgb{{color}} solid;">Imagen</th>
-                        <th style="color: rgb{{color}}; border-bottom: 2px rgb{{color}} solid;">Codigo</th>
-                        <th style="color: rgb{{color}}; border-bottom: 2px rgb{{color}} solid;">Nombre</th>
-                        <th style="color: rgb{{color}}; border-bottom: 2px rgb{{color}} solid;">Aparición</th>
-                        <th style="color: rgb{{color}}; border-bottom: 2px rgb{{color}} solid;">Favorita</th>
+                        <th data-orderable="false" style="color: #00a1e3; border-bottom: 2px #00a1e3 solid;">Imagen</th>
+                        <th style="color: #00a1e3; border-bottom: 2px #00a1e3 solid;">Codigo</th>
+                        <th style="color: #00a1e3; border-bottom: 2px #00a1e3 solid;">Nombre</th>
+                        <th style="color: #00a1e3; border-bottom: 2px #00a1e3 solid;">Aparición</th>
+                        <th style="color: #00a1e3; border-bottom: 2px #00a1e3 solid;">Favorita</th>
                     </tr>
                 </thead>
                 <tbody id="search-results">
                     {% for card in cards %}
                         <tr id="search-results">
-                        <td style="border-bottom: 2px rgb{{color}} solid;" data-label="Imagen" class="hidde"><img src="{% url 'card_image' card.card_id %}" alt="{{ card.card__name }}" class="myImg img-animation"/></td>
-                        <td style="border-bottom: 2px rgb{{color}} solid;" data-label="Codigo"><a href="javascript:;" onclick="copyURL()" class="copyte">{{ card.code_id }}</a></td>
-                        <td style="border-bottom: 2px rgb{{color}} solid;" data-label="Nombre">{{ card.card__name }}</td>
-                        <td style="border-bottom: 2px rgb{{color}} solid;" data-label="Aparicion">{{ card.card__series }}</td>
-                        <td style="border-bottom: 2px rgb{{color}} solid;" data-label="Favorita" class="hidden ultima">{{ card.favorite }}</td>
+                        <td style="border-bottom: 2px #00a1e3 solid;" data-label="Imagen" class="hidde"><img src="{% url 'card_image' card.card_id %}" alt="{{ card.card__name }}" class="myImg img-animation"/></td>
+                        <td style="border-bottom: 2px #00a1e3 solid;" data-label="Codigo"><a href="javascript:;" onclick="copyURL()" class="copyte">{{ card.code_id }}</a></td>
+                        <td style="border-bottom: 2px #00a1e3 solid;" data-label="Nombre">{{ card.card__name }}</td>
+                        <td style="border-bottom: 2px #00a1e3 solid;" data-label="Aparicion">{{ card.card__series }}</td>
+                        <td style="border-bottom: 2px #00a1e3 solid;" data-label="Favorita" class="hidden ultima">{{ card.favorite }}</td>
                         </tr>
                     {% endfor %}
                 </tbody>
@@ -108,7 +108,34 @@
 
     <script>
         $(document).ready( function () {
-            $('#table_id').DataTable();
+            $('#table_id').DataTable({"autoWidth": false,
+            
+            "language": {
+                "decimal":        "",
+                "emptyTable":     "No hay datos disponibles en la Coleccion",
+                "info":           "Mostrando _START_ de _END_",
+                "infoEmpty":      "Mostrando 0 de 0",
+                "infoFiltered":   "(Filtando _MAX_ cartas)",
+                "infoPostFix":    "",
+                "thousands":      ",",
+                "lengthMenu":     "_MENU_",
+                "loadingRecords": "Cargando...",
+                "processing":     "Procesando...",
+                "search":         '',
+                "searchPlaceholder": "Buscador",
+                "zeroRecords":    "No se encontraron cartas que coincidan",
+                "paginate": {
+                    "first":      "Primero",
+                    "last":       "Ultimo",
+                    "next":       "Siguiente",
+                    "previous":   "Anterior"
+                },
+                "aria": {
+                    "sortAscending":  ": activar para ordenar la columna ascendente",
+                    "sortDescending": ": activar para ordenar la columna descendente"
+                }
+            },  
+            });
         } );
         function openPage(pageName, elmnt) {
             // Hide all elements with class="tabcontent" by default */
