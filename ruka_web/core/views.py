@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.template import RequestContext
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import redirect, reverse
-from .models import Card, Cardinstance, Inventory, Shop
+from .models import Card, Cardinstance, Inventory, Shop, User, Guild, Shard
 from django.core import serializers
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
@@ -38,7 +38,21 @@ def user(request, id):
 
     return render(request, 'core/user.html', {"user": data, "cards": cards, "color": color})
 
-
+def status(request):
+    usuarios = User.objects.count()
+    servidores = Guild.objects.count()
+    def get_shard_count():
+        data = requests.get('https://discordapp.com/api/v8/gateway/bot', headers={
+        "Authorization": "Bot NzQ5NDYyMTYxNzEzMjY2NzM4.X0sVBw.JdwE5vBF5cSwvgs2gqGHEq3_ELs",
+        "User-Agent": "DiscordBot (https://github.com/Rapptz/discord.py 1.3.0a) Python/3.7 aiohttp/3.6.1"
+    })
+        data.raise_for_status()
+        content = data.json()
+        # return 16
+        return content['shards']
+    shards = get_shard_count()
+    shards_list = Shard.objects.all()
+    return render(request, 'core/status.html', {"users": usuarios, "guilds": servidores, "shards": shards, "shard_list": shards_list })
 
 def logout(request):
     del request.session['user']

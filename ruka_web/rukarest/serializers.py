@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from core.models import Card, Cardinstance, User
+from core.models import Card, Cardinstance, User, Shop, Inventory, Guild, Shard
 
 class CardSerializer(serializers.ModelSerializer):
 
@@ -17,3 +17,4 @@ class CardInstanceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Cardinstance
         fields = ['card_id', 'code_id', 'durability', 'favorite', 'owner_id', 'number']
+

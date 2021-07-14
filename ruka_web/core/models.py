@@ -70,3 +70,28 @@ class Inventory(models.Model):
     
     def __str__(self):
         return self.owner_id, self.item_id, self.amount
+
+class Guild(models.Model):
+    guild_id = models.BigIntegerField(primary_key=True)
+    prefix = models.CharField(max_length=3)
+
+    class Meta:
+        managed = True
+        db_table = 'guild'
+    
+    def __str__(self):
+        return self.guild_id, self.prefix
+
+
+class Shard(models.Model):
+    shard_id = models.IntegerField(primary_key=True)
+    name = models.CharField(max_length=255)
+    status = models.CharField(max_length=255)
+
+    class Meta:
+        managed = True
+        db_table = 'shards'
+
+    def __str__(self):
+        return self.shard_id, self.name, self.status
+    

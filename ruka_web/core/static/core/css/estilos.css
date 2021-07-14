@@ -7,8 +7,8 @@ html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
+small, strike, sub, sup, tt, var,
+u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
@@ -54,7 +54,9 @@ body,
 html {
   height: 100%;
 }
-
+img {
+  img { width: 100%; height: auto; }
+}
 header{
     flex: 0 0 auto;
 }
@@ -489,6 +491,78 @@ parametro{
 }
 /* !FIN CONTENEDORES DE LA PAGINA PRINCIPAL  */
 
+/* ! INICIO PAGINA STATUS */
+.shards-container{
+  width: 70%;
+  /* margin: 0 auto; */
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+.tooltip{
+  display: inline-flex;
+  background-color: #1b1e24;
+  border-radius: 5px;
+  width: auto;
+  padding: 10px;
+  margin: 5px;
+}
+.tooltip{
+  font-family: 'Roboto', sans-serif;
+  font-size: medium;
+  color: white;
+  font-weight: 300;
+}
+.status-container{
+  display: flex;
+  width: 80%;
+  flex-direction: column;
+  margin: 0 auto;
+
+}
+.status-main{
+  display: flex;
+  margin-top: 30px;
+  justify-content: center;
+}
+.status-left{
+  display: flex;
+  height: 200px;
+  background-color: #1b1e24;
+  padding: 15px;
+  border-radius: 5px;
+}
+.status-right{
+  display: none;
+  height: 200px;
+  background-color: #1b1e24;
+  padding: 15px;
+}
+.status-overview{
+  display: flex;
+  font-family: 'Roboto', sans-serif;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  padding: 15px;
+  
+}
+.status-overview h1{
+  color: white;
+  font-size: 30px;
+  font-weight: bold;
+  font-style: italic;
+
+}
+.status-overview h2{
+  color: white;
+  font-size: 20px;
+}
+
+
+/* ! FIN PAGINA STATUS */
 /* ! Incio pagina usuario */
 
 .user-profile{
@@ -523,8 +597,6 @@ parametro{
 }
 .user-profile-avatar img{
     border-radius: 50%;
-    width: 100%;
-    height: auto;
 }
 .user-profile-tabs{
   display: flex;
@@ -532,7 +604,6 @@ parametro{
   color: white;
   justify-content: space-evenly;
   height: 60px;
-
 }
 .tablink{
   display: inline-flex;
@@ -1035,6 +1106,11 @@ div.table-title {
  
 /* Móviles en horizontal o tablets en vertical */
 @media (max-width: 767px) {
+  .user-profile-info img{
+    margin-top: 60px;
+    height: 200px;
+    width: auto;
+  }
   .table-container{
     width: 100%;
   }
@@ -1086,6 +1162,7 @@ div.table-title {
     display:flex;
     justify-content:center;
     z-index: 1;
+    margin-bottom: 30px;
   }
   .nav-container .logo{
     flex:1;
@@ -1196,4 +1273,19 @@ div.table-title {
   }
 
 }
-/* @media (max-width: 480px) {...} */
+
+@media (max-width: 512px) {
+  .user-profile-info img{
+    margin-top: 60px;
+    height: 100px;
+    width: auto;
+  }
+  .user-profile-avatar{
+    flex-direction: column;
+  }
+  .user-profile-info{
+    justify-content: center;
+    
+  }
+  
+}

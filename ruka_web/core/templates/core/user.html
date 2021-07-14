@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
     <link rel="stylesheet" href="../../static/core/css/estilos.css">
     <link rel="stylesheet" href="../../static/core/css/awesome/fonts.css">
     <link rel="stylesheet" href="../../static/core/css/awesome/all.min.css">
@@ -23,9 +23,9 @@
             <div class="user-profile-info">
                 <div class="user-profile-avatar">
                     {% if user.avatar is None %}
-                    <img src="https://discord.com/assets/1f0bfc0865d324c2587920a7d80c609b.png" alt="{{user.name}}">
+                    <img src="https://discord.com/assets/1f0bfc0865d324c2587920a7d80c609b.png"  alt="{{user.name}}">
                     {% else %}
-                    <img src="https://cdn.discordapp.com/avatars/{{user.id}}/{{user.avatar}}.webp?size=256" alt="{{user.name}}" width="256" height="256">
+                    <img src="https://cdn.discordapp.com/avatars/{{user.id}}/{{user.avatar}}.webp?size=256" alt="{{user.name}}" >
                     {% endif %}
                     <h1>{{user.username}}</h1>
                 </div>

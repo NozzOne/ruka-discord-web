@@ -38,3 +38,11 @@ def getcard(request, id):
         serializer = CardSerializer(carta, many=True)
         return Response(serializer.data)
 
+
+# @csrf_exempt
+# @api_view(['PUT'])
+# @permission_classes((IsAuthenticated,))
+# def update_shard(request, nombre:str):
+#     if request.method == 'PUT':
+
+        
