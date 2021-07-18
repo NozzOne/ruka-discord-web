@@ -37,6 +37,7 @@ ALLOWED_HOSTS = ['localhost', 'ruka.life', '144.172.70.240']
 
 
 # Application definition
+STATIC_URL = '/static/'
 
 INSTALLED_APPS = [
     'django.contrib.admin',
