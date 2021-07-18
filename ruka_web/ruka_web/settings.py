@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-0t@1#hv91v((eddqxk9$2d&hg(8qqg9&___v&p*)c&l$%r^^&-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', 'ruka.life', '144.172.70.240']
 
 
 # Application definition
