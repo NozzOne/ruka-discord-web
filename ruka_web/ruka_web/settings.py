@@ -14,6 +14,13 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+import os.path
+
+STATIC_ROOT = ''
+
+STATIC_URL = '/static/'
+
+STATICFILES_DIRS = ( os.path.join('static'), )
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -37,7 +44,6 @@ ALLOWED_HOSTS = ['localhost', 'ruka.life', '144.172.70.240']
 
 
 # Application definition
-STATIC_ROOT = "/home/admin/web/rukaweb/ruka_web/core/static"
 
 INSTALLED_APPS = [
     'django.contrib.admin',
