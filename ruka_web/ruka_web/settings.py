@@ -23,7 +23,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-0t@1#hv91v((eddqxk9$2d&hg(8qqg9&___v&p*)c&l$%r^^&-'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG=False
+SECURE_HSTS_SECONDS=2592000
+SECURE_HSTS_INCLUDE_SUBDOMAINS=True
+SECURE_HSTS_PRELOAD=True
+SECURE_SSL_REDIRECT=True
+SESSION_COOKIE_SECURE=True
 
 ALLOWED_HOSTS = ['localhost', 'ruka.life', '144.172.70.240']
 
