@@ -7,5 +7,5 @@ urlpatterns = [
     path('card/<int:id>/image.jpg', views.get_cardimage, name="card_image"),
     path('user/<int:id>', views.user, name="coleccion"),
     path('logout', views.logout, name="logout"),
-    path('status', views.status, name="status")
+    path('status', views.status, name="status"),
 ]

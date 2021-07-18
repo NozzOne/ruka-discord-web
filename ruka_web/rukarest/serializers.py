@@ -1,3 +1,5 @@
+from inspect import ClassFoundException
+from django.db.models import fields
 from rest_framework import serializers
 from core.models import Card, Cardinstance, User, Shop, Inventory, Guild, Shard
 
@@ -18,3 +20,12 @@ class CardInstanceSerializer(serializers.ModelSerializer):
         model = Cardinstance
         fields = ['card_id', 'code_id', 'durability', 'favorite', 'owner_id', 'number']
 
+class ShardUpdateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Shard
+        fields = ['status']
+
+class ShardCloseSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Shard
+        fields = ['status', 'shard_ping', 'shard_servers']

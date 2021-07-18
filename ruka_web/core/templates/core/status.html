@@ -42,16 +42,25 @@
         font-size: 30px;
         font-weight: bold;
         font-family: 'Roboto', sans-serif;">Fragmentos:</h1>
-        <div class="shards-container">
+        <div class="shards-container" style="margin-bottom: 100px;">
             {% for shard in shard_list %}
-                <div class="tooltip">
-                    {{shard.name}}
-                    {% if shard.status == 'Apagado'%}
-                        <i style="margin-left: 5px; color: #d50000;" class="fas fa-circle"></i>
-                    {% else %}
-                        <i style="margin-left: 5px; color: #00c853;" class="fas fa-circle"></i>
-                    {% endif %}
-
+                <div class="tooltip" style="width: 150px;">
+                    <div class="tooltip-status" style="margin-bottom: 10px; border-bottom: 2px #00a1e3 solid; display: inline-flex;">
+                        <h4 id="name">{{shard.name}}</h4>
+                        <div style="flex-grow: 1;text-align: right; margin-bottom: 10px;">
+                            {% if shard.status == 'Desconectado'%}
+                                <i style="color: #d50000;" class="fas fa-circle"></i>
+                            {% elif shard.status == 'Reiniciando'%}
+                                <i style="color: #ffd600;" class="fas fa-circle"></i>
+                            {% else %}
+                                <i style="color: #00c853;" class="fas fa-circle"></i>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <h5><strong>Shard id:</strong> {{shard.shard_id|add:"-1"}}</h5>
+                    <h5><strong>Ping:</strong> {{shard.shard_ping}}</h5>
+                    <h5><strong>Servidores:</strong> {{shard.shard_servers}}</h5>
+                    <h5><strong>Estado:</strong> {{shard.status}}</h5>
                 </div>
                 
             {% endfor %}

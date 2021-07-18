@@ -80,18 +80,20 @@ class Guild(models.Model):
         db_table = 'guild'
     
     def __str__(self):
-        return self.guild_id, self.prefix
+        return '{} {}'.format(self.guild_id, self.prefix)
 
 
 class Shard(models.Model):
     shard_id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=255)
     status = models.CharField(max_length=255)
+    shard_ping = models.IntegerField()
+    shard_servers = models.IntegerField()
 
     class Meta:
         managed = True
         db_table = 'shards'
 
     def __str__(self):
-        return self.shard_id, self.name, self.status
+        return '%s %s %s %s'%(self.shard_id, self.name, self.status, self.shard_ping, self.shard_servers)
     

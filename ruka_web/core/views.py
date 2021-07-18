@@ -1,10 +1,7 @@
-from django.shortcuts import render, get_object_or_404
-from django.template import RequestContext
-from django.http import HttpResponse, JsonResponse
-from django.shortcuts import redirect, reverse
-from .models import Card, Cardinstance, Inventory, Shop, User, Guild, Shard
-from django.core import serializers
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.shortcuts import render
+from django.http import HttpResponse
+from django.shortcuts import redirect
+from .models import Card, Cardinstance, User, Guild, Shard
 
 from colorthief import ColorThief
 import requests, io
@@ -51,7 +48,8 @@ def status(request):
         # return 16
         return content['shards']
     shards = get_shard_count()
-    shards_list = Shard.objects.all()
+    shards_list = Shard.objects.all().order_by('shard_id')
+
     return render(request, 'core/status.html', {"users": usuarios, "guilds": servidores, "shards": shards, "shard_list": shards_list })
 
 def logout(request):
@@ -65,7 +63,7 @@ def get_cardimage(request, id):
     
     return HttpResponse(image, content_type='image/jpeg')
 
-auth_url_discord = "https://discord.com/api/oauth2/authorize?client_id=749462161713266738&redirect_uri=http%3A%2F%2F127.0.0.1%3A8000%2Foauth2%2Flogin%2Fredirect&response_type=code&scope=identify"
+auth_url_discord = "https://discord.com/api/oauth2/authorize?client_id=749462161713266738&redirect_uri=http%3A%2F%2F127.0.0.1%3A8000%2Foauth2%2Flogin%2Fredirect&response_type=code&scope=identify%20guilds"
 
 def discord_login(request: HttpResponse):
     return redirect(auth_url_discord)
