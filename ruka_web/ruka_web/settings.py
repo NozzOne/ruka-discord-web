@@ -52,6 +52,8 @@ INSTALLED_APPS = [
     'sslserver'
 
 ]
+STATIC_URL = '/static/'
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
