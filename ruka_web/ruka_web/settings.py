@@ -24,7 +24,7 @@ SECRET_KEY = 'django-insecure-0t@1#hv91v((eddqxk9$2d&hg(8qqg9&___v&p*)c&l$%r^^&-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG=False
 CORS_REPLACE_HTTPS_REFERER      = False
-HOST_SCHEME                     = "http://"
+HOST_SCHEME                     = "https://"
 SECURE_PROXY_SSL_HEADER         = None
 SECURE_SSL_REDIRECT             = False
 SESSION_COOKIE_SECURE           = True
@@ -48,7 +48,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'core',
-    'rukarest'
+    'rukarest',
+    'sslserver'
 
 ]
 
