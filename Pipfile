@@ -10,7 +10,6 @@ requests = "*"
 djangorestframework = "*"
 markdown = "*"
 django-filter = "*"
-django-sslserver = "*"
 
 [dev-packages]
 
