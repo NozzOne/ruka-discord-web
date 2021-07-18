@@ -24,11 +24,15 @@ SECRET_KEY = 'django-insecure-0t@1#hv91v((eddqxk9$2d&hg(8qqg9&___v&p*)c&l$%r^^&-
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG=False
-SECURE_HSTS_SECONDS=2592000
-SECURE_HSTS_INCLUDE_SUBDOMAINS=True
-SECURE_HSTS_PRELOAD=True
-SECURE_SSL_REDIRECT=True
-SESSION_COOKIE_SECURE=True
+CORS_REPLACE_HTTPS_REFERER      = False
+HOST_SCHEME                     = "http://"
+SECURE_PROXY_SSL_HEADER         = None
+SECURE_SSL_REDIRECT             = False
+SESSION_COOKIE_SECURE           = False
+CSRF_COOKIE_SECURE              = False
+SECURE_HSTS_SECONDS             = None
+SECURE_HSTS_INCLUDE_SUBDOMAINS  = False
+SECURE_FRAME_DENY               = False
 
 ALLOWED_HOSTS = ['localhost', 'ruka.life', '144.172.70.240']
 
