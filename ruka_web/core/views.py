@@ -63,7 +63,7 @@ def get_cardimage(request, id):
     
     return HttpResponse(image, content_type='image/jpeg')
 
-auth_url_discord = "https://discord.com/api/oauth2/authorize?client_id=749462161713266738&redirect_uri=https%3A%2F%2Fruka.life%2Foauth2%2Flogin%2Fredirect&response_type=code&scope=identify%20guilds"
+auth_url_discord = "https://discord.com/api/oauth2/authorize?client_id=749462161713266738&redirect_uri=https%3A%2F%2Fruka.life%2Foauth2%2Flogin%2Fredirect&response_type=code&scope=identify"
 
 def discord_login(request: HttpResponse):
     return redirect(auth_url_discord)
@@ -87,7 +87,7 @@ def exchange_code(code: str):
     headers = {
         'Content-Type': 'application/x-www-form-urlencoded'
     }
-    response = requests.post("https://discord.com/api/oauth2/token", data=data, headers=headers)
+    response = requests.post("https://discord.com/api/v8/oauth2/token", data=data, headers=headers)
     credentials = response.json()
     access_token = credentials['access_token']
     response = requests.get('https://discord.com/api/v8/users/@me', headers={'Authorization': 'Bearer %s' % access_token})
