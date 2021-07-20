@@ -90,6 +90,6 @@ def exchange_code(code: str):
     response = requests.post("https://discord.com/api/v8/oauth2/token", data=data, headers=headers)
     credentials = response.json()
     access_token = credentials['access_token']
-    response = requests.get('https://discord.com/api/v8/users/@me', headers={'Authorization': 'Bearer %s' % access_token})
+    response = requests.get('https://discord.com/api/v8/users/@me', headers={'Authorization': f'Bearer {access_token}'})
     user = response.json()
     return user
