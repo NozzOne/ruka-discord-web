@@ -33,7 +33,6 @@ class User(models.Model):
 class Cardinstance(models.Model):
     code_id = models.CharField(primary_key=True, max_length=6)
     card = models.ForeignKey(Card, on_delete=models.CASCADE)
-    durability = models.IntegerField(null=False)
     favorite = models.CharField(max_length=1,null=False)
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     number = models.BigIntegerField(null=False)
@@ -43,7 +42,7 @@ class Cardinstance(models.Model):
         db_table = 'cardinstance'
         
     def __str__(self):
-        return self.code_id, self.card, self.durability, self.favorite, self.owner, self.number
+        return self.code_id, self.card, self.favorite, self.owner, self.number
 
 class Shop(models.Model):
     item_id = models.IntegerField(primary_key=True)

@@ -31,7 +31,7 @@ def user(request, id):
     color = color_thief.get_color(quality=1)
 
 
-    cards = Cardinstance.objects.select_related('card').filter(owner=id).values('card_id','code_id',  'card__name', 'card__series', 'durability', 'favorite', 'owner', 'number')
+    cards = Cardinstance.objects.select_related('card').filter(owner=id).values('card_id','code_id',  'card__name', 'card__series', 'favorite', 'owner', 'number')
 
     return render(request, 'core/user.html', {"user": data, "cards": cards, "color": color})
 

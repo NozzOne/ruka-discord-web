@@ -18,7 +18,7 @@ class UserSerializer(serializers.ModelSerializer):
 class CardInstanceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Cardinstance
-        fields = ['card_id', 'code_id', 'durability', 'favorite', 'owner_id', 'number']
+        fields = ['card_id', 'code_id', 'favorite', 'owner_id', 'number']
 
 class ShardUpdateSerializer(serializers.ModelSerializer):
     class Meta:
