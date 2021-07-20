@@ -1,0 +1,177 @@
+*** Starting uWSGI 2.0.19.1 (64bit) on [Sun Jul 18 20:23:11 2021] ***
+compiled with version: 5.4.0 20160609 on 18 July 2021 23:18:34
+os: Linux-4.4.0-21-generic #37-Ubuntu SMP Mon Apr 18 18:33:37 UTC 2016
+nodename: ruka.life
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /home/admin/rukaweb/ruka_web
+detected binary path: /root/.local/share/virtualenvs/rukaweb-ibOxU7F_/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/admin/rukaweb/ruka_web/
+your processes number limit is 3819
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /home/admin/rukaweb/ruka_web/rukaweb.sock fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.9.0 (default, Jul 18 2021, 05:41:33)  [GCC 5.4.0 20160609]
+PEP 405 virtualenv detected: /root/.local/share/virtualenvs/rukaweb-ibOxU7F_
+Set PythonHome to /root/.local/share/virtualenvs/rukaweb-ibOxU7F_
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x2ab0bc0
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 802120 bytes (783 KB) for 10 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x2ab0bc0 pid: 28670 (default app)
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 28670)
+spawned uWSGI worker 1 (pid: 28671, cores: 1)
+spawned uWSGI worker 2 (pid: 28672, cores: 1)
+spawned uWSGI worker 3 (pid: 28673, cores: 1)
+spawned uWSGI worker 4 (pid: 28674, cores: 1)
+spawned uWSGI worker 5 (pid: 28675, cores: 1)
+spawned uWSGI worker 6 (pid: 28676, cores: 1)
+spawned uWSGI worker 7 (pid: 28677, cores: 1)
+spawned uWSGI worker 8 (pid: 28678, cores: 1)
+spawned uWSGI worker 9 (pid: 28679, cores: 1)
+spawned uWSGI worker 10 (pid: 28680, cores: 1)
+[pid: 28673|app: 0|req: 1/1] 201.188.228.154 () {44 vars in 782 bytes} [Mon Jul 19 00:23:23 2021] GET / => generated 5649 bytes in 167 msecs (HTTP/1.1 200) 6 headers in 181 bytes (1 switches on core 0)
+[pid: 28680|app: 0|req: 1/2] 201.188.228.154 () {44 vars in 812 bytes} [Mon Jul 19 00:23:28 2021] GET /oauth2/login => generated 0 bytes in 147 msecs (HTTP/1.1 302) 6 headers in 362 bytes (1 switches on core 0)
+[pid: 28680|app: 0|req: 2/3] 201.188.228.154 () {44 vars in 782 bytes} [Mon Jul 19 00:29:15 2021] GET / => generated 5649 bytes in 14 msecs (HTTP/1.1 200) 6 headers in 181 bytes (2 switches on core 0)
+[pid: 28680|app: 0|req: 3/4] 201.188.228.154 () {44 vars in 782 bytes} [Mon Jul 19 00:37:30 2021] GET / => generated 5649 bytes in 4 msecs (HTTP/1.1 200) 6 headers in 181 bytes (1 switches on core 0)
+[pid: 28679|app: 0|req: 1/5] 201.188.228.154 () {44 vars in 782 bytes} [Mon Jul 19 00:37:34 2021] GET / => generated 5649 bytes in 160 msecs (HTTP/1.1 200) 6 headers in 181 bytes (1 switches on core 0)
+[pid: 28680|app: 0|req: 4/6] 201.188.228.154 () {46 vars in 804 bytes} [Mon Jul 19 00:37:35 2021] GET / => generated 5649 bytes in 4 msecs (HTTP/1.1 200) 6 headers in 181 bytes (1 switches on core 0)
+Not Found: /favicon.ico
+[pid: 28672|app: 0|req: 1/7] 201.188.228.154 () {46 vars in 757 bytes} [Mon Jul 19 00:37:37 2021] GET /favicon.ico => generated 3549 bytes in 134 msecs (HTTP/1.1 404) 5 headers in 159 bytes (1 switches on core 0)
+[pid: 28680|app: 0|req: 5/8] 201.188.228.154 () {44 vars in 782 bytes} [Mon Jul 19 00:44:40 2021] GET / => generated 5649 bytes in 4 msecs (HTTP/1.1 200) 6 headers in 181 bytes (1 switches on core 0)
+[pid: 28680|app: 0|req: 6/9] 201.188.228.154 () {44 vars in 782 bytes} [Mon Jul 19 00:46:32 2021] GET / => generated 5649 bytes in 4 msecs (HTTP/1.1 200) 6 headers in 181 bytes (2 switches on core 0)
+[pid: 28680|app: 0|req: 7/10] 201.188.228.154 () {44 vars in 782 bytes} [Mon Jul 19 00:56:03 2021] GET / => generated 5649 bytes in 4 msecs (HTTP/1.1 200) 6 headers in 181 bytes (2 switches on core 0)
+[pid: 28679|app: 0|req: 2/11] 201.188.228.154 () {44 vars in 782 bytes} [Mon Jul 19 00:56:16 2021] GET / => generated 5649 bytes in 5 msecs (HTTP/1.1 200) 6 headers in 181 bytes (1 switches on core 0)
+[pid: 28680|app: 0|req: 8/12] 201.188.228.154 () {44 vars in 782 bytes} [Mon Jul 19 01:10:10 2021] GET / => generated 5649 bytes in 4 msecs (HTTP/1.1 200) 6 headers in 181 bytes (1 switches on core 0)
+[pid: 28680|app: 0|req: 9/13] 201.188.228.154 () {44 vars in 778 bytes} [Mon Jul 19 01:13:17 2021] GET / => generated 5649 bytes in 5 msecs (HTTP/1.1 200) 6 headers in 181 bytes (2 switches on core 0)
+Not Found: /favicon.ico
+[pid: 28679|app: 0|req: 3/14] 201.188.228.154 () {46 vars in 749 bytes} [Mon Jul 19 01:13:18 2021] GET /favicon.ico => generated 3545 bytes in 11 msecs (HTTP/1.1 404) 5 headers in 159 bytes (1 switches on core 0)
+Invalid HTTP_HOST header: '144.172.70.240:80'. You may need to add '144.172.70.240' to ALLOWED_HOSTS.
+Bad Request: /
+[pid: 28680|app: 0|req: 10/15] 185.36.81.24 () {40 vars in 563 bytes} [Mon Jul 19 01:28:33 2021] GET / => generated 58314 bytes in 71 msecs (HTTP/1.1 400) 3 headers in 116 bytes (2 switches on core 0)
+Invalid HTTP_HOST header: '144.172.70.240:80'. You may need to add '144.172.70.240' to ALLOWED_HOSTS.
+Bad Request: /
+[pid: 28680|app: 0|req: 11/16] 39.107.178.184 () {34 vars in 397 bytes} [Mon Jul 19 02:04:15 2021] GET / => generated 57833 bytes in 28 msecs (HTTP/1.1 400) 3 headers in 116 bytes (2 switches on core 0)
+Invalid HTTP_HOST header: '144.172.70.240:80'. You may need to add '144.172.70.240' to ALLOWED_HOSTS.
+Bad Request: /
+[pid: 28680|app: 0|req: 12/17] 91.197.207.235 () {32 vars in 461 bytes} [Mon Jul 19 03:01:23 2021] GET / => generated 57914 bytes in 25 msecs (HTTP/1.1 400) 3 headers in 116 bytes (2 switches on core 0)
+Invalid HTTP_HOST header: '144.172.70.240:80'. You may need to add '144.172.70.240' to ALLOWED_HOSTS.
+Bad Request: /
+[pid: 28680|app: 0|req: 13/18] 154.118.243.138 () {32 vars in 463 bytes} [Mon Jul 19 03:07:43 2021] GET / => generated 57917 bytes in 29 msecs (HTTP/1.1 400) 3 headers in 116 bytes (2 switches on core 0)
+Invalid HTTP_HOST header: '144.172.70.240'. You may need to add '144.172.70.240' to ALLOWED_HOSTS.
+Bad Request: /
+[pid: 28680|app: 0|req: 14/19] 192.241.197.189 () {34 vars in 392 bytes} [Mon Jul 19 03:19:36 2021] GET / => generated 57805 bytes in 28 msecs (HTTP/1.1 400) 3 headers in 116 bytes (1 switches on core 0)
+[pid: 28680|app: 0|req: 15/20] 201.188.233.31 () {42 vars in 750 bytes} [Mon Jul 19 03:37:11 2021] GET / => generated 5649 bytes in 3 msecs (HTTP/1.1 200) 6 headers in 181 bytes (2 switches on core 0)
+Not Found: /favicon.ico
+[pid: 28679|app: 0|req: 4/21] 201.188.233.31 () {42 vars in 703 bytes} [Mon Jul 19 03:37:12 2021] GET /favicon.ico => generated 3549 bytes in 6 msecs (HTTP/1.1 404) 5 headers in 159 bytes (2 switches on core 0)
+[pid: 28680|app: 0|req: 16/22] 201.188.233.31 () {44 vars in 781 bytes} [Mon Jul 19 03:39:34 2021] GET / => generated 5649 bytes in 3 msecs (HTTP/1.1 200) 6 headers in 181 bytes (1 switches on core 0)
+[pid: 28679|app: 0|req: 5/23] 201.188.233.31 () {44 vars in 781 bytes} [Mon Jul 19 03:39:57 2021] GET / => generated 5649 bytes in 3 msecs (HTTP/1.1 200) 6 headers in 181 bytes (2 switches on core 0)
+[pid: 28680|app: 0|req: 17/24] 201.188.233.31 () {56 vars in 988 bytes} [Tue Jul 20 00:00:43 2021] GET / => generated 5649 bytes in 12 msecs (HTTP/2.0 200) 6 headers in 181 bytes (2 switches on core 0)
+[pid: 28679|app: 0|req: 6/25] 201.188.233.31 () {56 vars in 988 bytes} [Tue Jul 20 00:00:53 2021] GET / => generated 5649 bytes in 9 msecs (HTTP/2.0 200) 6 headers in 181 bytes (2 switches on core 0)
+[pid: 28680|app: 0|req: 18/26] 201.188.233.31 () {56 vars in 988 bytes} [Tue Jul 20 00:03:07 2021] GET / => generated 5649 bytes in 4 msecs (HTTP/2.0 200) 6 headers in 181 bytes (2 switches on core 0)
+[pid: 28680|app: 0|req: 19/27] 201.188.233.31 () {44 vars in 777 bytes} [Tue Jul 20 00:06:33 2021] GET / => generated 5649 bytes in 4 msecs (HTTP/1.1 200) 6 headers in 181 bytes (2 switches on core 0)
+Not Found: /favicon.ico
+[pid: 28679|app: 0|req: 7/28] 201.188.233.31 () {46 vars in 748 bytes} [Tue Jul 20 00:06:35 2021] GET /favicon.ico => generated 3545 bytes in 9 msecs (HTTP/1.1 404) 5 headers in 159 bytes (2 switches on core 0)
+[pid: 28680|app: 0|req: 20/29] 201.188.233.31 () {44 vars in 777 bytes} [Tue Jul 20 00:06:43 2021] GET / => generated 5649 bytes in 5 msecs (HTTP/1.1 200) 6 headers in 181 bytes (2 switches on core 0)
+[pid: 28672|app: 0|req: 2/30] 201.188.233.31 () {42 vars in 750 bytes} [Tue Jul 20 00:06:54 2021] GET / => generated 5649 bytes in 43 msecs (HTTP/1.1 200) 6 headers in 181 bytes (2 switches on core 0)
+Not Found: /favicon.ico
+[pid: 28680|app: 0|req: 21/31] 201.188.233.31 () {42 vars in 703 bytes} [Tue Jul 20 00:06:59 2021] GET /favicon.ico => generated 3549 bytes in 8 msecs (HTTP/1.1 404) 5 headers in 159 bytes (2 switches on core 0)
+[pid: 28680|app: 0|req: 22/32] 201.188.233.31 () {56 vars in 979 bytes} [Tue Jul 20 00:09:08 2021] GET / => generated 5649 bytes in 4 msecs (HTTP/2.0 200) 6 headers in 181 bytes (2 switches on core 0)
+[pid: 28679|app: 0|req: 8/33] 201.188.233.31 () {56 vars in 979 bytes} [Tue Jul 20 00:09:40 2021] GET / => generated 5649 bytes in 4 msecs (HTTP/2.0 200) 6 headers in 181 bytes (2 switches on core 0)
+Invalid HTTP_HOST header: '144.172.70.240'. You may need to add '144.172.70.240' to ALLOWED_HOSTS.
+Bad Request: /
+[pid: 28672|app: 0|req: 3/34] 185.180.143.72 () {36 vars in 489 bytes} [Tue Jul 20 00:10:08 2021] GET / => generated 58137 bytes in 35 msecs (HTTP/1.1 400) 3 headers in 116 bytes (2 switches on core 0)
+[pid: 28680|app: 0|req: 23/35] 201.188.233.31 () {56 vars in 988 bytes} [Tue Jul 20 00:10:33 2021] GET / => generated 5649 bytes in 5 msecs (HTTP/2.0 200) 6 headers in 181 bytes (2 switches on core 0)
+[pid: 28679|app: 0|req: 9/36] 201.188.233.31 () {56 vars in 1022 bytes} [Tue Jul 20 00:11:12 2021] GET /oauth2/login => generated 0 bytes in 1 msecs (HTTP/2.0 302) 6 headers in 362 bytes (2 switches on core 0)
+[pid: 28673|app: 0|req: 2/37] 201.188.233.31 () {54 vars in 957 bytes} [Tue Jul 20 00:11:13 2021] GET / => generated 5649 bytes in 10 msecs (HTTP/2.0 200) 6 headers in 181 bytes (2 switches on core 0)
+Invalid HTTP_HOST header: '144.172.70.240'. You may need to add '144.172.70.240' to ALLOWED_HOSTS.
+Bad Request: /
+[pid: 28680|app: 0|req: 24/38] 201.188.233.31 () {42 vars in 751 bytes} [Tue Jul 20 00:11:18 2021] GET / => generated 58714 bytes in 34 msecs (HTTP/1.1 400) 3 headers in 116 bytes (2 switches on core 0)
+Invalid HTTP_HOST header: '144.172.70.240'. You may need to add '144.172.70.240' to ALLOWED_HOSTS.
+Bad Request: /favicon.ico
+[pid: 28679|app: 0|req: 10/39] 201.188.233.31 () {42 vars in 705 bytes} [Tue Jul 20 00:11:19 2021] GET /favicon.ico => generated 58778 bytes in 32 msecs (HTTP/1.1 400) 3 headers in 116 bytes (1 switches on core 0)
+[pid: 28680|app: 0|req: 25/40] 201.188.233.31 () {56 vars in 988 bytes} [Tue Jul 20 00:11:27 2021] GET / => generated 5649 bytes in 4 msecs (HTTP/2.0 200) 6 headers in 181 bytes (1 switches on core 0)
+[pid: 28680|app: 0|req: 26/41] 201.188.233.31 () {56 vars in 979 bytes} [Tue Jul 20 00:17:08 2021] GET / => generated 5649 bytes in 4 msecs (HTTP/2.0 200) 6 headers in 181 bytes (2 switches on core 0)
+[pid: 28679|app: 0|req: 11/42] 201.188.233.31 () {56 vars in 979 bytes} [Tue Jul 20 00:17:36 2021] GET / => generated 5649 bytes in 5 msecs (HTTP/2.0 200) 6 headers in 181 bytes (2 switches on core 0)
+[pid: 28680|app: 0|req: 27/43] 201.188.233.31 () {56 vars in 989 bytes} [Tue Jul 20 00:19:00 2021] GET / => generated 5649 bytes in 5 msecs (HTTP/2.0 200) 6 headers in 181 bytes (2 switches on core 0)
+[pid: 28679|app: 0|req: 12/44] 201.188.233.31 () {56 vars in 979 bytes} [Tue Jul 20 00:19:06 2021] GET / => generated 5649 bytes in 4 msecs (HTTP/2.0 200) 6 headers in 181 bytes (2 switches on core 0)
+[pid: 28680|app: 0|req: 28/45] 201.188.233.31 () {56 vars in 979 bytes} [Tue Jul 20 00:24:00 2021] GET / => generated 5649 bytes in 4 msecs (HTTP/2.0 200) 6 headers in 181 bytes (2 switches on core 0)
+[pid: 28680|app: 0|req: 29/46] 201.188.233.31 () {56 vars in 979 bytes} [Tue Jul 20 00:27:37 2021] GET / => generated 5649 bytes in 5 msecs (HTTP/2.0 200) 6 headers in 181 bytes (2 switches on core 0)
+[pid: 28679|app: 0|req: 13/47] 209.141.38.163 () {40 vars in 514 bytes} [Tue Jul 20 00:27:47 2021] GET / => generated 5649 bytes in 3 msecs (HTTP/1.1 200) 6 headers in 181 bytes (2 switches on core 0)
+[pid: 28680|app: 0|req: 30/48] 201.188.233.31 () {56 vars in 979 bytes} [Tue Jul 20 00:32:47 2021] GET / => generated 5649 bytes in 4 msecs (HTTP/2.0 200) 6 headers in 181 bytes (2 switches on core 0)
+[pid: 28680|app: 0|req: 31/49] 74.120.14.40 () {36 vars in 437 bytes} [Tue Jul 20 00:50:33 2021] GET / => generated 5649 bytes in 5 msecs (HTTP/1.1 200) 6 headers in 181 bytes (2 switches on core 0)
+[pid: 28680|app: 0|req: 32/50] 128.1.248.26 () {38 vars in 520 bytes} [Tue Jul 20 00:59:27 2021] GET / => generated 5649 bytes in 5 msecs (HTTP/1.1 200) 6 headers in 181 bytes (2 switches on core 0)
+Invalid HTTP_HOST header: '144.172.70.240'. You may need to add '144.172.70.240' to ALLOWED_HOSTS.
+Bad Request: /
+[pid: 28680|app: 0|req: 33/51] 143.198.237.65 () {36 vars in 501 bytes} [Tue Jul 20 01:09:50 2021] GET / => generated 58139 bytes in 26 msecs (HTTP/1.1 400) 3 headers in 116 bytes (2 switches on core 0)
+Invalid HTTP_HOST header: '144.172.70.240'. You may need to add '144.172.70.240' to ALLOWED_HOSTS.
+Bad Request: /favicon.ico
+[pid: 28679|app: 0|req: 14/52] 143.198.237.65 () {36 vars in 523 bytes} [Tue Jul 20 01:09:58 2021] GET /favicon.ico => generated 58271 bytes in 26 msecs (HTTP/1.1 400) 3 headers in 116 bytes (2 switches on core 0)
+Invalid HTTP_HOST header: '144.172.70.240'. You may need to add '144.172.70.240' to ALLOWED_HOSTS.
+Bad Request: /robots.txt
+[pid: 28680|app: 0|req: 34/53] 143.198.237.65 () {36 vars in 521 bytes} [Tue Jul 20 01:10:00 2021] GET /robots.txt => generated 58259 bytes in 25 msecs (HTTP/1.1 400) 3 headers in 116 bytes (2 switches on core 0)
+[pid: 28680|app: 0|req: 35/54] 201.188.233.31 () {56 vars in 979 bytes} [Tue Jul 20 01:25:44 2021] GET / => generated 5649 bytes in 3 msecs (HTTP/2.0 200) 6 headers in 181 bytes (2 switches on core 0)
+[pid: 28679|app: 0|req: 15/55] 201.188.233.31 () {56 vars in 989 bytes} [Tue Jul 20 01:25:48 2021] GET / => generated 5649 bytes in 4 msecs (HTTP/2.0 200) 6 headers in 181 bytes (2 switches on core 0)
+[pid: 28680|app: 0|req: 36/56] 201.188.233.31 () {56 vars in 979 bytes} [Tue Jul 20 01:27:19 2021] GET / => generated 5649 bytes in 4 msecs (HTTP/2.0 200) 6 headers in 181 bytes (2 switches on core 0)
+[pid: 28679|app: 0|req: 16/57] 201.188.233.31 () {56 vars in 989 bytes} [Tue Jul 20 01:28:05 2021] GET / => generated 5649 bytes in 4 msecs (HTTP/2.0 200) 6 headers in 181 bytes (2 switches on core 0)
+Invalid HTTP_HOST header: '144.172.70.240:443'. You may need to add '144.172.70.240' to ALLOWED_HOSTS.
+Bad Request: /
+[pid: 28680|app: 0|req: 37/58] 92.118.161.57 () {32 vars in 453 bytes} [Tue Jul 20 01:43:31 2021] GET / => generated 57931 bytes in 28 msecs (HTTP/1.1 400) 3 headers in 116 bytes (2 switches on core 0)
+[pid: 28680|app: 0|req: 38/59] 201.188.233.31 () {56 vars in 979 bytes} [Tue Jul 20 01:47:17 2021] GET / => generated 5649 bytes in 5 msecs (HTTP/2.0 200) 6 headers in 181 bytes (2 switches on core 0)
+[pid: 28679|app: 0|req: 17/60] 201.188.233.31 () {56 vars in 979 bytes} [Tue Jul 20 01:47:18 2021] GET / => generated 5649 bytes in 4 msecs (HTTP/2.0 200) 6 headers in 181 bytes (2 switches on core 0)
+[pid: 28672|app: 0|req: 4/61] 201.188.233.31 () {56 vars in 979 bytes} [Tue Jul 20 01:47:40 2021] GET / => generated 5649 bytes in 6 msecs (HTTP/2.0 200) 6 headers in 181 bytes (2 switches on core 0)
+[pid: 28680|app: 0|req: 39/62] 201.188.233.31 () {56 vars in 979 bytes} [Tue Jul 20 01:47:42 2021] GET / => generated 5649 bytes in 4 msecs (HTTP/2.0 200) 6 headers in 181 bytes (2 switches on core 0)
+[pid: 28679|app: 0|req: 18/63] 201.188.233.31 () {54 vars in 948 bytes} [Tue Jul 20 01:47:48 2021] GET / => generated 5649 bytes in 6 msecs (HTTP/2.0 200) 6 headers in 181 bytes (2 switches on core 0)
+[pid: 28680|app: 0|req: 40/64] 201.188.233.31 () {56 vars in 983 bytes} [Tue Jul 20 01:48:46 2021] GET / => generated 5649 bytes in 4 msecs (HTTP/2.0 200) 6 headers in 181 bytes (2 switches on core 0)
+Not Found: /favicon.ico
+[pid: 28672|app: 0|req: 5/65] 201.188.233.31 () {56 vars in 937 bytes} [Tue Jul 20 01:48:49 2021] GET /favicon.ico => generated 3550 bytes in 7 msecs (HTTP/2.0 404) 5 headers in 159 bytes (2 switches on core 0)
+[pid: 28680|app: 0|req: 41/66] 201.188.233.31 () {56 vars in 988 bytes} [Tue Jul 20 01:58:35 2021] GET / => generated 5649 bytes in 5 msecs (HTTP/2.0 200) 6 headers in 181 bytes (2 switches on core 0)
+[pid: 28679|app: 0|req: 19/67] 80.82.77.192 () {38 vars in 532 bytes} [Tue Jul 20 01:59:59 2021] GET / => generated 5649 bytes in 4 msecs (HTTP/1.1 200) 6 headers in 181 bytes (2 switches on core 0)
+[pid: 28680|app: 0|req: 42/68] 144.172.70.240 () {34 vars in 362 bytes} [Tue Jul 20 02:00:33 2021] HEAD / => generated 5649 bytes in 7 msecs (HTTP/1.1 200) 6 headers in 181 bytes (1 switches on core 0)
+[pid: 28680|app: 0|req: 43/69] 201.188.233.31 () {54 vars in 957 bytes} [Tue Jul 20 02:02:31 2021] GET / => generated 5649 bytes in 5 msecs (HTTP/2.0 200) 6 headers in 181 bytes (2 switches on core 0)
+[pid: 28680|app: 0|req: 44/70] 186.10.194.114 () {54 vars in 977 bytes} [Tue Jul 20 02:20:04 2021] GET / => generated 5649 bytes in 5 msecs (HTTP/2.0 200) 6 headers in 181 bytes (2 switches on core 0)
+Not Found: /assets/home-first-container.webp
+[pid: 28679|app: 0|req: 20/71] 186.10.194.114 () {50 vars in 916 bytes} [Tue Jul 20 02:20:35 2021] GET /assets/home-first-container.webp => generated 3609 bytes in 9 msecs (HTTP/2.0 404) 5 headers in 159 bytes (2 switches on core 0)
+[pid: 28680|app: 0|req: 45/72] 186.10.194.114 () {54 vars in 1003 bytes} [Tue Jul 20 02:21:07 2021] GET /comandos => generated 7007 bytes in 4 msecs (HTTP/2.0 200) 6 headers in 181 bytes (2 switches on core 0)
+[pid: 28672|app: 0|req: 6/73] 186.10.194.114 () {54 vars in 987 bytes} [Tue Jul 20 02:21:08 2021] GET / => generated 5649 bytes in 5 msecs (HTTP/2.0 200) 6 headers in 181 bytes (1 switches on core 0)
+Not Found: /favicon.ico
+[pid: 28680|app: 0|req: 46/74] 186.10.194.114 () {54 vars in 928 bytes} [Tue Jul 20 02:21:25 2021] GET /favicon.ico => generated 3546 bytes in 5 msecs (HTTP/2.0 404) 5 headers in 159 bytes (1 switches on core 0)
+[pid: 28678|app: 0|req: 1/75] 186.10.194.114 () {54 vars in 1004 bytes} [Tue Jul 20 02:21:23 2021] GET /comandos => generated 7007 bytes in 1295 msecs (HTTP/2.0 200) 6 headers in 181 bytes (2 switches on core 0)
+[pid: 28676|app: 0|req: 1/76] 186.10.194.114 () {54 vars in 988 bytes} [Tue Jul 20 02:21:23 2021] GET / => generated 5649 bytes in 1295 msecs (HTTP/2.0 200) 6 headers in 181 bytes (2 switches on core 0)
+[pid: 28680|app: 0|req: 47/77] 186.10.194.114 () {56 vars in 1035 bytes} [Tue Jul 20 02:21:59 2021] GET /comandos => generated 7007 bytes in 6 msecs (HTTP/2.0 200) 6 headers in 181 bytes (2 switches on core 0)
+Not Found: /assets/home-first-container.webp
+[pid: 28679|app: 0|req: 21/78] 186.10.194.114 () {50 vars in 917 bytes} [Tue Jul 20 02:22:08 2021] GET /assets/home-first-container.webp => generated 3609 bytes in 6 msecs (HTTP/2.0 404) 5 headers in 159 bytes (2 switches on core 0)
+Not Found: /assets/wave.svg
+[pid: 28680|app: 0|req: 48/79] 186.10.194.114 () {50 vars in 883 bytes} [Tue Jul 20 02:22:08 2021] GET /assets/wave.svg => generated 3558 bytes in 6 msecs (HTTP/2.0 404) 5 headers in 159 bytes (1 switches on core 0)
+[pid: 28679|app: 0|req: 22/80] 186.10.194.114 () {54 vars in 1012 bytes} [Tue Jul 20 02:22:18 2021] GET /oauth2/login => generated 0 bytes in 1 msecs (HTTP/2.0 302) 6 headers in 362 bytes (2 switches on core 0)
+[pid: 28680|app: 0|req: 49/81] 201.188.233.31 () {54 vars in 957 bytes} [Tue Jul 20 03:06:37 2021] GET / => generated 5649 bytes in 4 msecs (HTTP/2.0 200) 6 headers in 181 bytes (2 switches on core 0)
+[pid: 28680|app: 0|req: 50/82] 201.188.233.31 () {56 vars in 988 bytes} [Tue Jul 20 03:09:16 2021] GET / => generated 5649 bytes in 5 msecs (HTTP/2.0 200) 6 headers in 181 bytes (2 switches on core 0)
+[pid: 28679|app: 0|req: 23/83] 201.188.233.31 () {56 vars in 1022 bytes} [Tue Jul 20 03:09:18 2021] GET /oauth2/login => generated 0 bytes in 1 msecs (HTTP/2.0 302) 6 headers in 362 bytes (2 switches on core 0)
+[pid: 28680|app: 0|req: 51/84] 65.154.226.165 () {46 vars in 773 bytes} [Tue Jul 20 03:13:40 2021] GET / => generated 5649 bytes in 3 msecs (HTTP/2.0 200) 6 headers in 181 bytes (2 switches on core 0)
+Not Found: /card/18246/
+[pid: 28679|app: 0|req: 24/85] 34.139.246.174 () {32 vars in 436 bytes} [Tue Jul 20 03:13:49 2021] GET /card/18246/ => generated 3546 bytes in 6 msecs (HTTP/1.1 404) 5 headers in 159 bytes (2 switches on core 0)
+Not Found: /card/22112/
+[pid: 28680|app: 0|req: 52/86] 34.139.152.126 () {32 vars in 436 bytes} [Tue Jul 20 03:13:49 2021] GET /card/22112/ => generated 3546 bytes in 5 msecs (HTTP/1.1 404) 5 headers in 159 bytes (1 switches on core 0)
+Not Found: /card/22112/
+[pid: 28672|app: 0|req: 7/87] 34.139.22.20 () {32 vars in 434 bytes} [Tue Jul 20 03:13:50 2021] GET /card/22112/ => generated 3546 bytes in 6 msecs (HTTP/1.1 404) 5 headers in 159 bytes (2 switches on core 0)
+Not Found: /card/18246/
+[pid: 28680|app: 0|req: 53/88] 34.138.39.17 () {32 vars in 434 bytes} [Tue Jul 20 03:13:51 2021] GET /card/18246/ => generated 3546 bytes in 6 msecs (HTTP/1.1 404) 5 headers in 159 bytes (2 switches on core 0)
+[pid: 28679|app: 0|req: 25/89] 115.164.185.244 () {56 vars in 1018 bytes} [Tue Jul 20 03:15:21 2021] GET / => generated 5649 bytes in 3 msecs (HTTP/2.0 200) 6 headers in 181 bytes (1 switches on core 0)
+Not Found: /favicon.ico
+[pid: 28680|app: 0|req: 54/90] 115.164.185.244 () {52 vars in 888 bytes} [Tue Jul 20 03:15:26 2021] GET /favicon.ico => generated 3546 bytes in 7 msecs (HTTP/2.0 404) 5 headers in 159 bytes (1 switches on core 0)
+[pid: 28679|app: 0|req: 26/91] 192.35.168.160 () {38 vars in 442 bytes} [Tue Jul 20 03:16:35 2021] GET / => generated 5649 bytes in 3 msecs (HTTP/1.1 200) 6 headers in 181 bytes (2 switches on core 0)
