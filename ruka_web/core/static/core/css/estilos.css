@@ -492,6 +492,9 @@ parametro{
 /* !FIN CONTENEDORES DE LA PAGINA PRINCIPAL  */
 
 /* ! INICIO PAGINA STATUS */
+.paginate_button {
+  color:white !important;
+}
 .shards-container{
   width: 100%;
   /* margin: 0 auto; */
