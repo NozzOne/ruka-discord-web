@@ -63,7 +63,7 @@ def get_cardimage(request, id):
     
     return HttpResponse(image, content_type='image/jpeg')
 
-auth_url_discord = "https://discord.com/api/oauth2/authorize?client_id=749462161713266738&redirect_uri=http%3A%2F%2F127.0.0.1%3A8000%2Foauth2%2Flogin%2Fredirect&response_type=code&scope=identify%20guilds"
+auth_url_discord = "https://discord.com/api/oauth2/authorize?client_id=749462161713266738&redirect_uri=https%3A%2F%2Fruka.life%2Foauth2%2Flogin%2Fredirect&response_type=code&scope=identify%20guilds"
 
 def discord_login(request: HttpResponse):
     return redirect(auth_url_discord)
@@ -81,7 +81,7 @@ def exchange_code(code: str):
         "client_secret": "2JuGhx1CMMumcA-uK-ROuP0XISP6EEY7",
         'grant_type': 'authorization_code',
         "code": code,
-        "redirect_uri": "http://127.0.0.1:8000/oauth2/login/redirect",
+        "redirect_uri": "https://ruka.life/oauth2/login/redirect",
         "scope": "identify"
     }
     headers = {
