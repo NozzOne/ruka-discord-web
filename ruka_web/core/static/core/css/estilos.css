@@ -235,7 +235,7 @@ parametro{
   margin-top: 10%;
 }
 .fondo-flex{
-  background: no-repeat linear-gradient(10deg, transparent 50%, #3b4a81 50.1%);
+  background: no-repeat linear-gradient(10deg, transparent 50%, #00a1e3 50.1%);
   display: flex;
   flex-direction: column;
   height: 80%;
@@ -931,7 +931,7 @@ div.table-title {
   
  th {
    color:#D5DDE5;;
-   background:#014297;
+   background:#00a1e3;
    font-size:23px;
    font-weight: 100;
    padding:24px;
