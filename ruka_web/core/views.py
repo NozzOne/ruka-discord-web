@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.shortcuts import redirect
 from .models import Card, Cardinstance, User, Guild, Shard
+from django.db.models import Sum
 
 from colorthief import ColorThief
 import requests, io
@@ -37,7 +38,7 @@ def user(request, id):
 
 def status(request):
     usuarios = User.objects.count()
-    servidores = Guild.objects.count()
+    servidores = Shard.objects.aggregate(Sum('shard_servers'))
     def get_shard_count():
         data = requests.get('https://discordapp.com/api/v8/gateway/bot', headers={
         "Authorization": "Bot NzQ5NDYyMTYxNzEzMjY2NzM4.X0sVBw.JdwE5vBF5cSwvgs2gqGHEq3_ELs",
