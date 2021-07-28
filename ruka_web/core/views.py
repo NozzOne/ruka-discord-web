@@ -41,7 +41,7 @@ def status(request):
     servidores = Shard.objects.aggregate(Sum('shard_servers'))
 
     try:
-        ready = Shard.objects.raw("SELECT status FROM shards where status = 'Conectado' limit 1")
+        ready = Shard.objects.filter(status='Conectado')
     except Shard.DoesNotExist:
         ready = 'Desconectado'
 
