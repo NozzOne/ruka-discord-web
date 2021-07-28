@@ -41,7 +41,7 @@ def status(request):
     servidores = Shard.objects.aggregate(Sum('shard_servers'))
 
     try:
-        ready = Shard.objects.get(status='Conectado')
+        ready = Shard.objects.raw("SELECT status FROM shards where status = 'Conectado'")
     except Shard.DoesNotExist:
         ready = 'Desconectado'
 
@@ -57,7 +57,7 @@ def status(request):
     shards = get_shard_count()
     shards_list = Shard.objects.all().order_by('shard_id')
 
-    return render(request, 'core/status.html', {"users": usuarios, "guilds": servidores, "shards": shards, "shard_list": shards_list, "status": ready['Conectado']})
+    return render(request, 'core/status.html', {"users": usuarios, "guilds": servidores, "shards": shards, "shard_list": shards_list, "status": ready})
 
 def logout(request):
     del request.session['user']
