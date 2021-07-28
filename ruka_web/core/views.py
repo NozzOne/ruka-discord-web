@@ -41,9 +41,9 @@ def status(request):
     servidores = Shard.objects.aggregate(Sum('shard_servers'))
 
     try:
-        status = Shard.objects.filter(status='Conectado')[0]
+        ready = Shard.objects.get(status='Conectado')[0:1]
     except Shard.DoesNotExist:
-        status = 'Desconectado'
+        ready = 'Desconectado'
 
     def get_shard_count():
         data = requests.get('https://discordapp.com/api/v8/gateway/bot', headers={
@@ -57,7 +57,7 @@ def status(request):
     shards = get_shard_count()
     shards_list = Shard.objects.all().order_by('shard_id')
 
-    return render(request, 'core/status.html', {"users": usuarios, "guilds": servidores, "shards": shards, "shard_list": shards_list, "status": status})
+    return render(request, 'core/status.html', {"users": usuarios, "guilds": servidores, "shards": shards, "shard_list": shards_list, "status": ready})
 
 def logout(request):
     del request.session['user']
