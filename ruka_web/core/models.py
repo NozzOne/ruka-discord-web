@@ -94,5 +94,5 @@ class Shard(models.Model):
         db_table = 'shards'
 
     def __str__(self):
-        return '%s %s %s %s %s'%(self.shard_id, self.name, self.status, self.shard_ping, self.shard_servers)
+        return self.shard_id, self.name, self.status, self.shard_ping, self.shard_servers
     
