@@ -57,7 +57,7 @@ def status(request):
     shards = get_shard_count()
     shards_list = Shard.objects.all().order_by('shard_id')
 
-    return render(request, 'core/status.html', {"users": usuarios, "guilds": servidores, "shards": shards, "shard_list": shards_list, "status": ready})
+    return render(request, 'core/status.html', {"users": usuarios, "guilds": servidores, "shards": shards, "shard_list": shards_list, "status": ready['Conectado']})
 
 def logout(request):
     del request.session['user']
