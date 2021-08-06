@@ -122,7 +122,7 @@ def get_image(request, id, calidad):
     bands = list(im2.split())
     if len(bands) == 4:
         # Assuming alpha is the last band
-        bands[3] = bands[3].point(lambda x: x*calidad)
+        bands[3] = bands[3].point(lambda x: x*float(str(f"0.{calidad}")))
     im2 = Image.merge(im2.mode, bands)
 
     im1.paste(im2, (0,0), im2)
