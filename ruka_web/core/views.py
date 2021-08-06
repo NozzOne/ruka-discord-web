@@ -117,7 +117,7 @@ def get_cardimage(request, id):
 auth_url_discord = "https://discord.com/api/oauth2/authorize?client_id=749462161713266738&redirect_uri=https%3A%2F%2Fruka.life%2Foauth2%2Flogin%2Fredirect&response_type=code&scope=identify"
 
 def get_image(request, id, calidad):
-    im1 = Image.open(requests.get(get_cardimage(request, id=id), stream=True).raw).convert('RGBA')
+    im1 = Image.open(requests.get(url=f'https://ruka.life/card/{id}/image.jpg', stream=True).raw).convert('RGBA')
     im2 = Image.open(requests.get(url='https://i.imgur.com/VIJgbnK.png', stream=True).raw).filter(ImageFilter.EDGE_ENHANCE)
     im2.putalpha(calidad)
     im1.paste(im2, (0,0), im2)
