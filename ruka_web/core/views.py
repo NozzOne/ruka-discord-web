@@ -99,8 +99,11 @@ def status(request):
     return render(request, 'core/status.html', {"users": usuarios, "guilds": servidores, "shards": shards, "shard_list": shards_list, "status": ready})
 
 def logout(request):
-    del request.session['user']
-    return redirect(home)
+    if 'user' not in request.session:
+        return redirect(home)
+    else:
+        del request.session['user']
+        return redirect(home)
 
 def get_cardimage(request, id):
     obj = Card.objects.get(card_id=id)
