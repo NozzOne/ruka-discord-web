@@ -118,7 +118,7 @@ auth_url_discord = "https://discord.com/api/oauth2/authorize?client_id=749462161
 
 def get_image(request, id, calidad):
     im1 = Image.open(requests.get(get_cardimage(request, id=id), stream=True).raw).convert('RGBA')
-    im2 = Image.open(requests.get(url='https://i.imgur.com/VIJgbnK.png', stream=True).raw).filter(ImageFilter.DETAIL)
+    im2 = Image.open(requests.get(url='https://i.imgur.com/VIJgbnK.png', stream=True).raw).filter(ImageFilter.EDGE_ENHANCE)
     im2.putalpha(calidad)
     im1.paste(im2, (0,0), im2)
     response = HttpResponse(content_type='image/PNG')
