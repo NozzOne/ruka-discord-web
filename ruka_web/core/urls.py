@@ -1,5 +1,6 @@
-from django.urls import path
-from . import views
+from django.urls import converters, path, register_converter
+from . import views, converters
+register_converter(converters.FloatUrlParameterConverter, 'float')
 
 urlpatterns = [
     path('', views.home, name="home"),
