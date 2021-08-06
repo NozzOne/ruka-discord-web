@@ -3,9 +3,11 @@ from django.http import HttpResponse
 from django.shortcuts import redirect
 from .models import Card, Cardinstance, User, Guild, Shard
 from django.db.models import Sum
+from django.core.files.uploadedfile import InMemoryUploadedFile
 
 from colorthief import ColorThief
 import requests, io
+from PIL import Image, ImageDraw, ImageFilter, ImageChops
 
 
 def home(request):
@@ -113,6 +115,16 @@ def get_cardimage(request, id):
     return HttpResponse(image, content_type='image/jpeg')
 
 auth_url_discord = "https://discord.com/api/oauth2/authorize?client_id=749462161713266738&redirect_uri=https%3A%2F%2Fruka.life%2Foauth2%2Flogin%2Fredirect&response_type=code&scope=identify"
+
+def get_image(request, id, calidad):
+    im1 = Image.open(requests.get(url=f'http://127.0.0.1:8000/card/{id}/image.jpg', stream=True).raw).convert('RGBA')
+    im2 = Image.open(requests.get(url='https://i.imgur.com/VIJgbnK.png', stream=True).raw).filter(ImageFilter.DETAIL)
+    im2.putalpha(calidad)
+    im1.paste(im2, (0,0), im2)
+    response = HttpResponse(content_type='image/PNG')
+    im1.save(response, format='PNG')
+
+    return response
 
 def discord_login(request: HttpResponse):
     return redirect(auth_url_discord)
