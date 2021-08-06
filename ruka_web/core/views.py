@@ -118,8 +118,13 @@ auth_url_discord = "https://discord.com/api/oauth2/authorize?client_id=749462161
 
 def get_image(request, id, calidad):
     im1 = Image.open(requests.get(url=f'https://ruka.life/card/{id}/image.jpg', stream=True).raw).convert('RGBA')
-    im2 = Image.open(requests.get(url='https://i.imgur.com/VIJgbnK.png', stream=True).raw).filter(ImageFilter.EDGE_ENHANCE)
-    im2.putalpha(calidad)
+    im2 = Image.open(requests.get(url='https://i.imgur.com/VIJgbnK.png', stream=True).raw).convert('RGBA').filter(ImageFilter.EMBOSS)
+    bands = list(im2.split())
+    if len(bands) == 4:
+        # Assuming alpha is the last band
+        bands[3] = bands[3].point(lambda x: x*calidad)
+    im2 = Image.merge(im2.mode, bands)
+
     im1.paste(im2, (0,0), im2)
     response = HttpResponse(content_type='image/PNG')
     im1.save(response, format='PNG')
