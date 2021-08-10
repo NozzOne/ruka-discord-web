@@ -8,9 +8,8 @@ from django.http import HttpResponseServerError
 from django.template import loader
 
 
-from colorthief import ColorThief
 import requests, io
-from PIL import Image, ImageFilter
+from PIL import Image, ImageFilter, ImageColor
 from random import randint
 
 def home(request):
@@ -30,14 +29,8 @@ def user(request, id):
         data = request.session['user']
 
         if data['id'] == id:
-            if data['avatar'] is None:
-                r = requests.get("https://discord.com/assets/1f0bfc0865d324c2587920a7d80c609b.png")
-            else:
-                r = requests.get(f'https://cdn.discordapp.com/avatars/{data["id"]}/{data["avatar"]}.webp?size=256')
-                
-            f = io.BytesIO(r.content)
-            color_thief = ColorThief(f)
-            color = color_thief.get_color(quality=1)
+
+            color = ImageColor.getcolor(data['banner_color'], "RGB")
 
 
             cards = Cardinstance.objects.select_related('card').filter(owner=id).values('card_id','code_id',  'card__name', 'card__series', 'favorite', 'owner', 'number')
@@ -47,14 +40,7 @@ def user(request, id):
             response = requests.get(f'https://discord.com/api/v8/users/{id}', headers={'Authorization': f'Bot NzQ5NDYyMTYxNzEzMjY2NzM4.X0sVBw.JdwE5vBF5cSwvgs2gqGHEq3_ELs'})
             member = response.json()
 
-            if member['avatar'] is None:
-                r = requests.get("https://discord.com/assets/1f0bfc0865d324c2587920a7d80c609b.png")
-            else:
-                r = requests.get(f'https://cdn.discordapp.com/avatars/{member["id"]}/{member["avatar"]}.webp?size=256')
-                
-            f = io.BytesIO(r.content)
-            color_thief = ColorThief(f)
-            color = color_thief.get_color(quality=1)
+            color = ImageColor.getcolor(member['banner_color'], "RGB")
 
 
             cards = Cardinstance.objects.select_related('card').filter(owner=id).values('card_id','code_id',  'card__name', 'card__series', 'favorite', 'owner', 'number')
@@ -64,14 +50,7 @@ def user(request, id):
         response = requests.get(f'https://discord.com/api/v8/users/{id}', headers={'Authorization': f'Bot NzQ5NDYyMTYxNzEzMjY2NzM4.X0sVBw.JdwE5vBF5cSwvgs2gqGHEq3_ELs'})
         member = response.json()
 
-        if member['avatar'] is None:
-            r = requests.get("https://discord.com/assets/1f0bfc0865d324c2587920a7d80c609b.png")
-        else:
-            r = requests.get(f'https://cdn.discordapp.com/avatars/{member["id"]}/{member["avatar"]}.webp?size=256')
-            
-        f = io.BytesIO(r.content)
-        color_thief = ColorThief(f)
-        color = color_thief.get_color(quality=1)
+        color = ImageColor.getcolor(member['banner_color'], "RGB")
 
 
         cards = Cardinstance.objects.select_related('card').filter(owner=id).values('card_id','code_id',  'card__name', 'card__series', 'favorite', 'owner', 'number')
