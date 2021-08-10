@@ -39,7 +39,7 @@ def user(request, id):
 
             cards = Cardinstance.objects.select_related('card').filter(owner=id).values('card_id','code_id',  'card__name', 'card__series', 'favorite', 'owner', 'number')
 
-            return render(request, 'core/user.html', {"user": data, "cards": cards, "color": color})
+            return render(request, 'core/user.html', {"user": data, "cards": cards, "color": color, "typem": True})
         elif data['id'] != id:
             response = requests.get(f'https://discord.com/api/v8/users/{id}', headers={'Authorization': f'Bot NzQ5NDYyMTYxNzEzMjY2NzM4.X0sVBw.JdwE5vBF5cSwvgs2gqGHEq3_ELs'})
             member = response.json()
@@ -56,7 +56,7 @@ def user(request, id):
 
             cards = Cardinstance.objects.select_related('card').filter(owner=id).values('card_id','code_id',  'card__name', 'card__series', 'favorite', 'owner', 'number')
 
-            return render(request, 'core/user.html', {"member": member, "cards": cards, "color": color, "user": data})
+            return render(request, 'core/user.html', {"member": member, "cards": cards, "color": color, "user": data, "typem": False})
     except:
         response = requests.get(f'https://discord.com/api/v8/users/{id}', headers={'Authorization': f'Bot NzQ5NDYyMTYxNzEzMjY2NzM4.X0sVBw.JdwE5vBF5cSwvgs2gqGHEq3_ELs'})
         member = response.json()
@@ -73,7 +73,7 @@ def user(request, id):
 
         cards = Cardinstance.objects.select_related('card').filter(owner=id).values('card_id','code_id',  'card__name', 'card__series', 'favorite', 'owner', 'number')
 
-        return render(request, 'core/user.html', {"member": member, "cards": cards, "color": color, "user": data})
+        return render(request, 'core/user.html', {"member": member, "cards": cards, "color": color, "user": data, "typem": False})
 
 def status(request):
     usuarios = User.objects.count()

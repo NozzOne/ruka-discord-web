@@ -16,11 +16,14 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
     <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
 
-    <title>Ruka Bot | {{user.username}}{{member.username}}</title>
+    {% if typem == True %}
+        <title>Ruka Bot | {{user.username}}</title>
+    {% elif typem == False %}
+        <title>Ruka Bot | {{member.username}}</title>
 </head>
 <body>
     {% include './partials/_nav.html'%}
-    {% if 'username' in user %}
+    {% if typem == True %}
         <div class="user-container">
             <div class="user-profile" style="background-color:rgb{{ color }};">
                 <div class="user-profile-info">
@@ -35,7 +38,7 @@
                 </div>
             </div>
         </div>
-    {% elif 'username' in member %}
+    {% elif typem == False %}
         <div class="user-container">
             <div class="user-profile" style="background-color:rgb{{ color }};">
                 <div class="user-profile-info">
