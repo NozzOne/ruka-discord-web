@@ -1231,6 +1231,11 @@ div.table-title {
     align-content: center;
   }
   .main-container-btn{
+    display: flex;
+    flex-direction: row;
+    /* padding-left: 50px; */
+    /* padding-right: 50px; */
+    width: 300px;
     justify-content: center;
   }
 }

@@ -1,14 +1,14 @@
-from django.shortcuts import render
+from django.shortcuts import render, render_to_response
 from django.http import HttpResponse
 from django.shortcuts import redirect
-from .models import Card, Cardinstance, User, Guild, Shard
+from .models import Card, Cardinstance, User, Shard
 from django.db.models import Sum
-from django.core.files.uploadedfile import InMemoryUploadedFile
+from django.template import RequestContext
+
 
 from colorthief import ColorThief
 import requests, io
-from PIL import Image, ImageDraw, ImageFilter, ImageChops
-
+from PIL import Image, ImageFilter
 
 def home(request):
     if 'user' in request.session:
@@ -159,3 +159,16 @@ def exchange_code(code: str):
     response = requests.get('https://discord.com/api/v8/users/@me', headers={'Authorization': f'Bearer {access_token}'})
     user = response.json()
     return user
+
+
+def handler404(request, *args, **argv):
+    response = render_to_response('404.html', {},
+                                  context_instance=RequestContext(request))
+    response.status_code = 404
+    return response
+    
+def handler500(request, *args, **argv):
+    response = render_to_response('500.html', {},
+                                  context_instance=RequestContext(request))
+    response.status_code = 500
+    return response
