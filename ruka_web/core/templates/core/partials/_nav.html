@@ -5,7 +5,8 @@
     <nav class="site-nav">
         <a href="{% url 'home' %}"><i class="icon fas fa-home"></i>Inicio</a>
         <a href="{% url 'comandos' %}"><i class="icon fas fa-terminal"></i>Comandos</a>
-        <a href="#"><i class="icon fas fa-donate"></i>Donar</a>
+        <a href="{% url 'status' %}"><i class="fas fa-signal"></i>Estado</a>
+        <a href="https://paypal.me/nozz697?locale.x=es_XC"><i class="icon fas fa-donate"></i>Donar</a>
         <a href="#"><i class="icon fab fa-discord"></i>Servidor</a>
 
         {% if 'username' in user %}
