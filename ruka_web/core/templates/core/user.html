@@ -26,7 +26,11 @@
     {% include './partials/_nav.html'%}
     {% if typem == True %}
         <div class="user-container">
-            <div class="user-profile" style="background-color:rgb{{ color }};">
+            {% if banner == False %}
+                <div class="user-profile" style="background-color:rgb{{ color }};">
+            {% elif banner == True %}
+                <div class="user-profile" style="background-image: url({{ color }});">
+            {% endif %}
                 <div class="user-profile-info">
                     <div class="user-profile-avatar">
                         {% if user.avatar is None %}
@@ -41,7 +45,12 @@
         </div>
     {% elif typem == False %}
         <div class="user-container">
-            <div class="user-profile" style="background-color:rgb{{ color }};">
+            {% if banner == False %}
+                <div class="user-profile" style="background-color:rgb{{ color }};">
+            {% elif banner == True %}
+                <div class="user-profile" style="background-image: url({{ color }});">
+            {% endif %}
+
                 <div class="user-profile-info">
                     <div class="user-profile-avatar">
                         {% if member.avatar is None %}
