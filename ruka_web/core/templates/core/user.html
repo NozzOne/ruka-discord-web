@@ -29,7 +29,7 @@
             {% if banner == False %}
                 <div class="user-profile" style="background-color:rgb{{ color }};">
             {% elif banner == True %}
-                <div class="user-profile" style="background-image: url('https://cdn.discordapp.com/banners/{{user.id}}/{{color}}?size=1024');">
+                <div class="user-profile" style="background-repeat: no-repeat; background-size: cover; background-position-y: center; background-image: url('https://cdn.discordapp.com/banners/{{user.id}}/{{color}}?size=1024');">
             {% endif %}
                 <div class="user-profile-info">
                     <div class="user-profile-avatar">
@@ -48,7 +48,7 @@
             {% if banner == False %}
                 <div class="user-profile" style="background-color:rgb{{ color }};">
             {% elif banner == True %}
-                <div class="user-profile" style="background-image: url('https://cdn.discordapp.com/banners/{{member.id}}/{{color}}?size=1024');">
+                <div class="user-profile" style="background-repeat: no-repeat; background-size: cover; background-position-y: center; background-image: url('https://cdn.discordapp.com/banners/{{member.id}}/{{color}}?size=1024');">
             {% endif %}
 
                 <div class="user-profile-info">
