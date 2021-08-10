@@ -1,9 +1,6 @@
 from django.urls import path
 from . import views
 
-handler404 = 'core.views.Errorhandler404'
-handler500 = 'core.views.Errorhandler500'
-
 urlpatterns = [
     path('', views.home, name="home"),
     path('comandos', views.comandos ,name="comandos"),
