@@ -1,14 +1,17 @@
-from django.shortcuts import render, render_to_response
+from django.http.response import HttpResponseNotFound
+from django.shortcuts import render
 from django.http import HttpResponse
 from django.shortcuts import redirect
 from .models import Card, Cardinstance, User, Shard
 from django.db.models import Sum
-
+from django.http import HttpResponseServerError
+from django.template import loader
 
 
 from colorthief import ColorThief
 import requests, io
 from PIL import Image, ImageFilter
+from random import randint
 
 def home(request):
     if 'user' in request.session:
@@ -161,12 +164,12 @@ def exchange_code(code: str):
     return user
 
 
-def handler404(request, exception, template_name="404.html"):
-    response = render_to_response(template_name)
-    response.status_code = 404
-    return response
+def Errorhandler404(request, exception):
+    n = randint(1, 100000)
+    content = loader.render_to_string('core/404.html', {'number': n}, request)
+    return HttpResponseNotFound(content)
     
-def handler500(request, exception, template_name="500.html"):
-    response = render_to_response(template_name)
-    response.status_code = 500
-    return response
+def Errorhandler500(request):
+    n = randint(1, 100000)
+    content = loader.render_to_string('core/500.html', {'number': n}, request)
+    return HttpResponseServerError(content)
