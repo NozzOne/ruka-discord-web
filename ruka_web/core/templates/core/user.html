@@ -16,24 +16,40 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
     <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
 
-    <title>Ruka Bot | {{user.username}}</title>
+    <title>Ruka Bot | {{user.username member.username}}</title>
 </head>
 <body>
     {% include './partials/_nav.html'%}
-    <div class="user-container">
-        <div class="user-profile" style="background-color:rgb{{ color }};">
-            <div class="user-profile-info">
-                <div class="user-profile-avatar">
-                    {% if user.avatar is None %}
-                    <img src="https://discord.com/assets/1f0bfc0865d324c2587920a7d80c609b.png"  alt="{{user.name}}">
-                    {% else %}
-                    <img src="https://cdn.discordapp.com/avatars/{{user.id}}/{{user.avatar}}.webp?size=256" alt="{{user.name}}" >
-                    {% endif %}
-                    <h1>{{user.username}}</h1>
+    {% if 'username' in user %}
+        <div class="user-container">
+            <div class="user-profile" style="background-color:rgb{{ color }};">
+                <div class="user-profile-info">
+                    <div class="user-profile-avatar">
+                        {% if user.avatar is None %}
+                        <img src="https://discord.com/assets/1f0bfc0865d324c2587920a7d80c609b.png"  alt="{{user.name}}">
+                        {% else %}
+                        <img src="https://cdn.discordapp.com/avatars/{{user.id}}/{{user.avatar}}.webp?size=256" alt="{{user.name}}" >
+                        {% endif %}
+                        <h1>{{user.username}}</h1>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    {% elif 'username' in member %}
+        <div class="user-container">
+            <div class="user-profile" style="background-color:rgb{{ color }};">
+                <div class="user-profile-info">
+                    <div class="user-profile-avatar">
+                        {% if member.avatar is None %}
+                        <img src="https://discord.com/assets/1f0bfc0865d324c2587920a7d80c609b.png"  alt="{{member.name}}">
+                        {% else %}
+                        <img src="https://cdn.discordapp.com/avatars/{{member.id}}/{{member.avatar}}.webp?size=256" alt="{{member.name}}" >
+                        {% endif %}
+                        <h1>{{member.username}}</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
     <div class="user-profile-tabs">
         <button class="tablink" onclick="openPage('coleccion', this)" autofocus style="color:white;border-bottom:2px rgb{{color}} solid;" id="defaultOpen">Colección</button>
         <!-- <button class="tablink" onclick="openPage('whislist', this)" >Lista de deseos</button>

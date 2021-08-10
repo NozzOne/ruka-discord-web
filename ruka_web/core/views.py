@@ -42,12 +42,12 @@ def user(request, id):
             return render(request, 'core/user.html', {"user": data, "cards": cards, "color": color})
         elif data['id'] != id:
             response = requests.get(f'https://discord.com/api/v8/users/{id}', headers={'Authorization': f'Bot NzQ5NDYyMTYxNzEzMjY2NzM4.X0sVBw.JdwE5vBF5cSwvgs2gqGHEq3_ELs'})
-            user = response.json()
+            member = response.json()
 
-            if user['avatar'] is None:
+            if member['avatar'] is None:
                 r = requests.get("https://discord.com/assets/1f0bfc0865d324c2587920a7d80c609b.png")
             else:
-                r = requests.get(f'https://cdn.discordapp.com/avatars/{user["id"]}/{user["avatar"]}.webp?size=256')
+                r = requests.get(f'https://cdn.discordapp.com/avatars/{member["id"]}/{member["avatar"]}.webp?size=256')
                 
             f = io.BytesIO(r.content)
             color_thief = ColorThief(f)
@@ -56,15 +56,15 @@ def user(request, id):
 
             cards = Cardinstance.objects.select_related('card').filter(owner=id).values('card_id','code_id',  'card__name', 'card__series', 'favorite', 'owner', 'number')
 
-            return render(request, 'core/user.html', {"user": user, "cards": cards, "color": color})
+            return render(request, 'core/user.html', {"member": member, "cards": cards, "color": color})
     except:
         response = requests.get(f'https://discord.com/api/v8/users/{id}', headers={'Authorization': f'Bot NzQ5NDYyMTYxNzEzMjY2NzM4.X0sVBw.JdwE5vBF5cSwvgs2gqGHEq3_ELs'})
-        user = response.json()
+        member = response.json()
 
-        if user['avatar'] is None:
+        if member['avatar'] is None:
             r = requests.get("https://discord.com/assets/1f0bfc0865d324c2587920a7d80c609b.png")
         else:
-            r = requests.get(f'https://cdn.discordapp.com/avatars/{user["id"]}/{user["avatar"]}.webp?size=256')
+            r = requests.get(f'https://cdn.discordapp.com/avatars/{member["id"]}/{member["avatar"]}.webp?size=256')
             
         f = io.BytesIO(r.content)
         color_thief = ColorThief(f)
@@ -73,7 +73,7 @@ def user(request, id):
 
         cards = Cardinstance.objects.select_related('card').filter(owner=id).values('card_id','code_id',  'card__name', 'card__series', 'favorite', 'owner', 'number')
 
-        return render(request, 'core/user.html', {"user": user, "cards": cards, "color": color})
+        return render(request, 'core/user.html', {"member": member, "cards": cards, "color": color})
 
 def status(request):
     usuarios = User.objects.count()
