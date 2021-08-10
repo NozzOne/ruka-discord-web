@@ -56,7 +56,8 @@ def user(request, id):
 
             return render(request, 'core/user.html', {"member": member, "cards": cards, "color": color, "user": data, "typem": False, "banner": banner})
     except:
-        data = None
+        if data is None:
+            data = None
         response = requests.get(f'https://discord.com/api/v8/users/{id}', headers={'Authorization': f'Bot NzQ5NDYyMTYxNzEzMjY2NzM4.X0sVBw.JdwE5vBF5cSwvgs2gqGHEq3_ELs'})
         member = response.json()
 
