@@ -66,7 +66,6 @@ def user(request, id):
             color = member['banner']
             banner = True
 
-
         cards = Cardinstance.objects.select_related('card').filter(owner=id).values('card_id','code_id',  'card__name', 'card__series', 'favorite', 'owner', 'number')
 
         return render(request, 'core/user.html', {"member": member, "cards": cards, "color": color, "user": data, "typem": False, "banner": banner})
