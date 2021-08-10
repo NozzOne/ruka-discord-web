@@ -165,11 +165,9 @@ def exchange_code(code: str):
 
 
 def Errorhandler404(request, exception):
-    n = randint(1, 100000)
-    content = loader.render_to_string('core/404.html', {'number': n}, request)
+    content = loader.render_to_string('core/404.html', {}, request)
     return HttpResponseNotFound(content)
     
 def Errorhandler500(request):
-    n = randint(1, 100000)
-    content = loader.render_to_string('core/500.html', {'number': n}, request)
+    content = loader.render_to_string('core/500.html', {}, request)
     return HttpResponseServerError(content)
