@@ -18,6 +18,9 @@ from django.urls import path, include
 from core import views
 
 
+handler404 = 'core.views.Errorhandler404'
+handler500 = 'core.views.Errorhandler500'
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('core.urls')),   
