@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.shortcuts import redirect
 from .models import Card, Cardinstance, User, Shard
 from django.db.models import Sum
-from django.template import RequestContext
+
 
 
 from colorthief import ColorThief
