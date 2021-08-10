@@ -235,7 +235,7 @@ parametro{
   margin-top: 10%;
 }
 .fondo-flex{
-  background: no-repeat linear-gradient(10deg, transparent 50%, #3b4a81 50.1%);
+  background: no-repeat linear-gradient(10deg, transparent 50%, #00a1e3 50.1%);
   display: flex;
   flex-direction: column;
   height: 80%;
@@ -492,6 +492,9 @@ parametro{
 /* !FIN CONTENEDORES DE LA PAGINA PRINCIPAL  */
 
 /* ! INICIO PAGINA STATUS */
+.paginate_button {
+  color:white !important;
+}
 .shards-container{
   width: 100%;
   /* margin: 0 auto; */
@@ -928,7 +931,7 @@ div.table-title {
   
  th {
    color:#D5DDE5;;
-   background:#014297;
+   background:#00a1e3;
    font-size:23px;
    font-weight: 100;
    padding:24px;
@@ -1228,6 +1231,11 @@ div.table-title {
     align-content: center;
   }
   .main-container-btn{
+    display: flex;
+    flex-direction: row;
+    /* padding-left: 50px; */
+    /* padding-right: 50px; */
+    width: 300px;
     justify-content: center;
   }
 }
