@@ -9,7 +9,7 @@ from django.template import loader
 
 
 import requests, io
-from PIL import Image, ImageFilter, ImageColor
+from PIL import Image, ImageFilter, ImageColor, ImageOps
 from random import randint
 
 def home(request):
@@ -104,6 +104,8 @@ def logout(request):
         del request.session['user']
         return redirect(home)
 
+
+
 def get_cardimage(request, id):
     obj = Card.objects.get(card_id=id)
     value = obj.image
@@ -128,6 +130,31 @@ def get_image(request, id, calidad):
 
     return response
 
+def get_cardrows(request, card1, card2, card3):
+    im1 = Image.open(requests.get(f'https://ruka.life/card/{card1}/image.jpg', stream=True).raw)
+    im2 = Image.open(requests.get(f'https://ruka.life/card/{card2}/image.jpg', stream=True).raw).resize(im1.size, Image.ANTIALIAS)
+    im3 = Image.open(requests.get(f'https://ruka.life/card/{card3}/image.jpg', stream=True).raw).resize(im1.size, Image.ANTIALIAS)
+    im1 = ImageOps.expand(im1, border=(10, 10, 10, 10), fill=(0,0,0))   # (izquierda, arriba, derecha, abajo)
+    im2 = ImageOps.expand(im2, border=(10, 10, 10, 10), fill=(0,0,0))   # (izquierda, arriba, derecha, abajo)
+    im3 = ImageOps.expand(im3, border=(10, 10, 10, 10), fill=(0,0,0))   # (izquierda, arriba, derecha, abajo)
+    def image_grid(imgs, rows, cols):
+        assert len(imgs) == rows*cols
+
+        w, h = imgs[0].size
+        w = w + 20
+        h = h
+        grid = Image.new('RGBA', size=(cols*(w-7), rows*h))
+
+        grid_w, grid_h = grid.size
+        
+        for i, img in enumerate(imgs):
+            grid.paste(img, box=(i%cols*w, i//cols*h))
+        return grid
+
+    response = HttpResponse(content_type='image/PNG')
+    image_grid(imgs=[im1, im2, im3], rows=1, cols=3).save(response, format='PNG')
+    return response
+    
 def discord_login(request: HttpResponse):
     return redirect(auth_url_discord)
 
