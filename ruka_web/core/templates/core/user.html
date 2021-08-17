@@ -87,7 +87,7 @@
                 <tbody id="search-results">
                     {% for card in cards %}
                         <tr id="search-results">
-                        <td style="border-bottom: 2px #00a1e3 solid;" data-label="Imagen" class="hidde"><img src="{% url 'card_image' card.card_id %}" alt="{{ card.card__name }}" class="myImg img-animation"/></td>
+                        <td style="border-bottom: 2px #00a1e3 solid;" data-label="Imagen" class="hidde"><img data-src="{% url 'card_image' card.card_id %}" src="{% url 'card_image' card.card_id %}" alt="{{ card.card__name }}" class="myImg img-animation" loading="lazy"/></td>
                         <td style="border-bottom: 2px #00a1e3 solid;" data-label="Codigo"><a href="javascript:;" onclick="copyURL()" class="copyte">{{ card.code_id }}</a></td>
                         <td style="border-bottom: 2px #00a1e3 solid;" data-label="Nombre">{{ card.card__name }}</td>
                         <td style="border-bottom: 2px #00a1e3 solid;" data-label="Aparicion">{{ card.card__series }}</td>
@@ -142,9 +142,6 @@
     <script>
         $(document).ready( function () {
             $('#table_id').DataTable({"autoWidth": false,
-            drawCallback: function(){
-                $("img.myImg").lazyload();
-            },
             "language": {
                 "decimal":        "",
                 "emptyTable":     "No hay datos disponibles en la Coleccion",
@@ -198,6 +195,23 @@
         // Get the element with id="defaultOpen" and click on it
         document.getElementById("defaultOpen").click();
     </script>
+<script>
+    if ("loading" in HTMLImageElement.prototype) {
+      // Si el navegador soporta lazy-load, tomamos todas las imágenes que tienen la clase
+      // `lazyload`, obtenemos el valor de su atributo `data-src` y lo inyectamos en el `src`.
+      const images = document.querySelectorAll("img.lazyload");
+      images.forEach((img) => {
+        img.src = img.dataset.src;
+      });
+    } else {
+      // Importamos dinámicamente la libreria `lazysizes`
+      let script = document.createElement("script");
+      script.async = true;
+      script.src =
+        "https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.0/lazysizes.min.js";
+      document.body.appendChild(script);
+    }
+  </script>
     <script src="{% static 'core/js/image_viewer.js' %}"></script>
 </body>
 </html>
