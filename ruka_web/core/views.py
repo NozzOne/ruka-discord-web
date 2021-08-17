@@ -110,8 +110,11 @@ def get_cardimage(request, id):
     obj = Card.objects.get(card_id=id)
     value = obj.image
     image = bytes(value)
+    image = Image.open(image)
+    response = HttpResponse(content_type='image/PNG')
+    image.save(response, format="WEBP")
+    return response
     
-    return HttpResponse(image, content_type='image/jpeg')
 
 auth_url_discord = "https://discord.com/api/oauth2/authorize?client_id=749462161713266738&redirect_uri=https%3A%2F%2Fruka.life%2Foauth2%2Flogin%2Fredirect&response_type=code&scope=identify"
 
