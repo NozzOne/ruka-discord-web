@@ -13,6 +13,7 @@
     src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
     integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
     crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
     <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
 
@@ -141,7 +142,9 @@
     <script>
         $(document).ready( function () {
             $('#table_id').DataTable({"autoWidth": false,
-            
+            drawCallback: function(){
+                $("img.lazy").lazyload();
+            },
             "language": {
                 "decimal":        "",
                 "emptyTable":     "No hay datos disponibles en la Coleccion",
