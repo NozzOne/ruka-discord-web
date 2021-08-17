@@ -111,7 +111,7 @@ def get_cardimage(request, id):
     value = obj.image
     image = bytes(value)
     image = Image.open(image)
-    response = HttpResponse(content_type='image/PNG')
+    response = HttpResponse(content_type='image/WEBP')
     image.save(response, format="WEBP")
     return response
     
