@@ -109,7 +109,7 @@ def logout(request):
 def get_cardimage(request, id):
     obj = Card.objects.get(card_id=id)
     value = obj.image
-    image = bytes(value)
+    image = io.BytesIO(value)
     img = Image.open(image)
     response = HttpResponse(content_type='image/webp')
     img.save(response, format="WEBP")
