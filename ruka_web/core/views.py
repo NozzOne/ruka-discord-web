@@ -29,14 +29,16 @@ def user(request, id):
         data = request.session['user']
 
         if data['id'] == id:
-
-            if data['banner'] is None:
-                color = ImageColor.getcolor(data['banner_color'], "RGB")
-                banner = False
-            else:
-                color = data['banner']
-                banner = True
-
+            
+            try:
+                if data['banner'] is None:
+                    color = ImageColor.getcolor(data['banner_color'], "RGB")
+                    banner = False
+                else:
+                    color = data['banner']
+                    banner = True
+            except:
+                color = (0, 161, 227)
 
             cards = Cardinstance.objects.select_related('card').filter(owner=id).values('card_id','code_id',  'card__name', 'card__series', 'favorite', 'owner', 'number')
 
@@ -44,13 +46,15 @@ def user(request, id):
         elif data['id'] != id:
             response = requests.get(f'https://discord.com/api/v8/users/{id}', headers={'Authorization': f'Bot NzQ5NDYyMTYxNzEzMjY2NzM4.X0sVBw.JdwE5vBF5cSwvgs2gqGHEq3_ELs'})
             member = response.json()
-
-            if member['banner'] is None:
-                color = ImageColor.getcolor(member['banner_color'], "RGB")
-                banner = False
-            else:
-                color = member['banner']
-                banner = True
+            try:
+                if member['banner'] is None:
+                    color = ImageColor.getcolor(member['banner_color'], "RGB")
+                    banner = False
+                else:
+                    color = member['banner']
+                    banner = True
+            except:
+                color = (0, 161, 227)
 
             cards = Cardinstance.objects.select_related('card').filter(owner=id).values('card_id','code_id',  'card__name', 'card__series', 'favorite', 'owner', 'number')
 
@@ -61,12 +65,15 @@ def user(request, id):
         response = requests.get(f'https://discord.com/api/v8/users/{id}', headers={'Authorization': f'Bot NzQ5NDYyMTYxNzEzMjY2NzM4.X0sVBw.JdwE5vBF5cSwvgs2gqGHEq3_ELs'})
         member = response.json()
 
-        if member['banner'] is None:
-            color = ImageColor.getcolor(member['banner_color'], "RGB")
-            banner = False
-        else:
-            color = member['banner']
-            banner = True
+        try:
+            if member['banner'] is None:
+                color = ImageColor.getcolor(member['banner_color'], "RGB")
+                banner = False
+            else:
+                color = member['banner']
+                banner = True
+        except:
+            color = (0, 161, 227)
 
         cards = Cardinstance.objects.select_related('card').filter(owner=id).values('card_id','code_id',  'card__name', 'card__series', 'favorite', 'owner', 'number')
 
