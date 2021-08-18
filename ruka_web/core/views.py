@@ -188,10 +188,10 @@ def exchange_code(code: str):
     return user
 
 
-def Errorhandler404(request, exception):
-    content = loader.render_to_string('core/404.html', {}, request)
-    return HttpResponseNotFound(content)
+# def Errorhandler404(request, exception):
+#     content = loader.render_to_string('core/404.html', {}, request)
+#     return HttpResponseNotFound(content)
     
-def Errorhandler500(request):
-    content = loader.render_to_string('core/500.html', {}, request)
-    return HttpResponseServerError(content)
+# def Errorhandler500(request):
+#     content = loader.render_to_string('core/500.html', {}, request)
+#     return HttpResponseServerError(content)
