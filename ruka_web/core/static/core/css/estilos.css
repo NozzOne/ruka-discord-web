@@ -492,7 +492,7 @@ parametro{
 /* !FIN CONTENEDORES DE LA PAGINA PRINCIPAL  */
 
 /* ! INICIO PAGINA STATUS */
-.dataTables_wrapper .dataTables_paginate .paginate_button {
+.dataTables_wrapper {
   color:white !important;
 }
 .shards-container{
