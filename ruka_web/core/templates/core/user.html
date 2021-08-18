@@ -171,7 +171,7 @@
 
             table.on('page.dt', function() {
                 $('html, body').animate({
-                    scrollTop: $(".dataTables_wrapper").offset().top
+                    scrollTop: $(".dataTables_wrapper tbody tr").offset().top
                 }, 'slow');
             });
 
