@@ -68,14 +68,12 @@ body{
   overflow-x: hidden;
 }
 footer{
-    margin-top: 2em;
-    background-color: #1b1e24;
-    flex: 0 0 auto;
-    box-shadow: 0 1px 1px 0 rgb(0 0 0 / 12%);
-    text-align: left;
-    font: normal 16px sans-serif;
-    padding: 0vmin 50px;
-    margin-top: 50px;
+  background-color: #1b1e24;
+  flex: 0 0 auto;
+  box-shadow: 0 1px 1px 0 rgb(0 0 0 / 12%);
+  text-align: left;
+  font: normal 16px sans-serif;
+  padding: 0vmin 50px;
 }
 code{
   background-color: #3e4550;
