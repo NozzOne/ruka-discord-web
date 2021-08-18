@@ -746,6 +746,7 @@ parametro{
 
 .copyte{
   font-weight: bold;
+  cursor: pointer;
 }
 .copyte:hover{
   -webkit-animation-name: pulse;

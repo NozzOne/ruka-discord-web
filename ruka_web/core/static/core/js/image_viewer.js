@@ -41,6 +41,13 @@ function cerrar(){
 closePopup()
 };
 
+const copyURL = () => {
+    const copyDiv = document.querySelector('.copyAlert:not(.animate)')
+    if(copyDiv) {
+        copyDiv.classList.add('animate');
+        copyDiv.addEventListener('animationend', () => copyDiv.classList.remove('animate') );
+    }
+    };
 var btn = $('#button');
 
 $(window).scroll(function() {
