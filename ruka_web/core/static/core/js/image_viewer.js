@@ -1,16 +1,11 @@
-    $(document).ready(function() {
-    $('.copyte').each(function(index, element) {
-    $(element).click(function() {
-        var clickedTdText = $(this).text() //get the clicked text
-        var temp = $("<input>"); //create temp  input
-        $("body").append(temp); //append temp input
-        temp.val(clickedTdText).select(); //select text
-        document.execCommand("copy");
-        temp.remove(); //remove temp inout
-        
-    })
-    })
-});
+function copy(that){
+    var inp =document.createElement('input');
+    document.body.appendChild(inp)
+    inp.value =that.textContent
+    inp.select();
+    document.execCommand('copy',false);
+    inp.remove();
+};
 
 // Get the modal
 var modal = document.getElementById('myModal');
