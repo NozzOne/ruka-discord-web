@@ -139,44 +139,43 @@
     <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
     <script>
         $(document).ready( function () {
-            var oldStart = 0;
-            $('#table_id').DataTable({"autoWidth": false,
-                drawCallback: function (o) {
-                var newStart = this.api().page.info().start;
-        
-                if ( newStart != oldStart ) {
-                    var targetOffset = $('#table_id').offset().top;
-                    $('html,body').animate({scrollTop: targetOffset}, 500);
-                    oldStart = newStart;
-                }
-            },
-            "language": {
-                "decimal":        "",
-                "emptyTable":     "No hay datos disponibles en la Coleccion",
-                "info":           "Mostrando _START_ de _END_",
-                "infoEmpty":      "Mostrando 0 de 0",
-                "infoFiltered":   "(Filtando _MAX_ cartas)",
-                "infoPostFix":    "",
-                "thousands":      ",",
-                "lengthMenu":     "_MENU_",
-                "loadingRecords": "Cargando...",
-                "processing":     "Procesando...",
-                "search":         '',
-                "searchPlaceholder": "Buscador",
-                "zeroRecords":    "No se encontraron cartas que coincidan",
-                "paginate": {
-                    "first":      "Primero",
-                    "last":       "Ultimo",
-                    "next":       "Siguiente",
-                    "previous":   "Anterior"
-                },
-                "aria": {
-                    "sortAscending":  ": activar para ordenar la columna ascendente",
-                    "sortDescending": ": activar para ordenar la columna descendente"
-                }
-            },  
+            
+            var table = $('#table_id').DataTable({
+                "autoWidth": false,
+                "language": {
+                    "decimal":        "",
+                    "emptyTable":     "No hay datos disponibles en la Coleccion",
+                    "info":           "Mostrando _START_ de _END_",
+                    "infoEmpty":      "Mostrando 0 de 0",
+                    "infoFiltered":   "(Filtando _MAX_ cartas)",
+                    "infoPostFix":    "",
+                    "thousands":      ",",
+                    "lengthMenu":     "_MENU_",
+                    "loadingRecords": "Cargando...",
+                    "processing":     "Procesando...",
+                    "search":         '',
+                    "searchPlaceholder": "Buscador",
+                    "zeroRecords":    "No se encontraron cartas que coincidan",
+                    "paginate": {
+                        "first":      "Primero",
+                        "last":       "Ultimo",
+                        "next":       "Siguiente",
+                        "previous":   "Anterior"
+                    },
+                    "aria": {
+                        "sortAscending":  ": activar para ordenar la columna ascendente",
+                        "sortDescending": ": activar para ordenar la columna descendente"
+                    }
+                },  
             });
-        } );
+
+            table.on('page.dt', function() {
+                $('html, body').animate({
+                    scrollTop: $(".dataTables_wrapper tbody tr:eq(0)").offset().top
+                }, 'slow');
+            });
+
+        });
         function openPage(pageName, elmnt) {
             // Hide all elements with class="tabcontent" by default */
             var i, tabcontent, tablinks;
