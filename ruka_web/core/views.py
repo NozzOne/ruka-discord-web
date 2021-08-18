@@ -39,6 +39,7 @@ def user(request, id):
                     banner = True
             except:
                 color = (0, 161, 227)
+                banner = False
 
             cards = Cardinstance.objects.select_related('card').filter(owner=id).values('card_id','code_id',  'card__name', 'card__series', 'favorite', 'owner', 'number')
 
@@ -55,6 +56,7 @@ def user(request, id):
                     banner = True
             except:
                 color = (0, 161, 227)
+                banner = False
 
             cards = Cardinstance.objects.select_related('card').filter(owner=id).values('card_id','code_id',  'card__name', 'card__series', 'favorite', 'owner', 'number')
 
@@ -74,6 +76,7 @@ def user(request, id):
                 banner = True
         except:
             color = (0, 161, 227)
+            banner = False
 
         cards = Cardinstance.objects.select_related('card').filter(owner=id).values('card_id','code_id',  'card__name', 'card__series', 'favorite', 'owner', 'number')
 
