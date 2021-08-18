@@ -82,7 +82,7 @@
                     {% for card in cards %}
                         <tr id="search-results">
                         <td style="border-bottom: 2px #00a1e3 solid;" data-label="Imagen" class="hidde"><img data-src="{% url 'card_image' card.card_id %}" src="{% url 'card_image' card.card_id %}" alt="{{ card.card__name }}" class="lazyload myImg img-animation" loading="lazy"/></td>
-                        <td style="border-bottom: 2px #00a1e3 solid;" data-label="Codigo"><a onclick="copyURL(); copy(this);" class="copyte">{{ card.code_id }}</a></td>
+                        <td style="border-bottom: 2px #00a1e3 solid;" data-label="Codigo"><a style="opacity:0" onload="showme(this)" onerror ="imgError(this);" onclick="copyURL(); copy(this);" class="copyte">{{ card.code_id }}</a></td>
                         <td style="border-bottom: 2px #00a1e3 solid;" data-label="Nombre">{{ card.card__name }}</td>
                         <td style="border-bottom: 2px #00a1e3 solid;" data-label="Aparicion">{{ card.card__series }}</td>
                         <td style="border-bottom: 2px #00a1e3 solid;" data-label="Favorita" class="hidden ultima">{{ card.favorite }}</td>
@@ -137,7 +137,24 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
-    
+    <script type='text/javascript'>
+        function showme(elem)
+        {
+        $(elem).css("opacity",1)
+        }
+        function imgError(image) {
+            if (!image.hasOwnProperty('retryCount')){
+            image.retryCount = 0;
+            }
+
+            if (image.retryCount < 10){
+            setTimeout(function (){
+                image.src += '?' + +new Date;
+                image.retryCount += 1;
+            }, 1000);
+            }
+        }
+      </script>
     <script>
         $(document).ready( function () {
             
