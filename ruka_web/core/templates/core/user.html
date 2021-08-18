@@ -81,8 +81,8 @@
                 <tbody id="search-results">
                     {% for card in cards %}
                         <tr id="search-results">
-                        <td style="border-bottom: 2px #00a1e3 solid;" data-label="Imagen" class="hidde"><img data-src="{% url 'card_image' card.card_id %}" src="{% url 'card_image' card.card_id %}" alt="{{ card.card__name }}" class="lazyload myImg img-animation" loading="lazy"/></td>
-                        <td style="border-bottom: 2px #00a1e3 solid;" data-label="Codigo"><a style="opacity:0" onload="showme(this)" onerror ="imgError(this);" onclick="copyURL(); copy(this);" class="copyte">{{ card.code_id }}</a></td>
+                        <td style="border-bottom: 2px #00a1e3 solid;" data-label="Imagen" class="hidde"><img style="opacity:0" onload="showme(this)" onerror ="imgError(this);" data-src="{% url 'card_image' card.card_id %}" src="{% url 'card_image' card.card_id %}" alt="{{ card.card__name }}" class="lazyload myImg img-animation" loading="lazy"/></td>
+                        <td style="border-bottom: 2px #00a1e3 solid;" data-label="Codigo"><a onclick="copyURL(); copy(this);" class="copyte">{{ card.code_id }}</a></td>
                         <td style="border-bottom: 2px #00a1e3 solid;" data-label="Nombre">{{ card.card__name }}</td>
                         <td style="border-bottom: 2px #00a1e3 solid;" data-label="Aparicion">{{ card.card__series }}</td>
                         <td style="border-bottom: 2px #00a1e3 solid;" data-label="Favorita" class="hidden ultima">{{ card.favorite }}</td>
