@@ -95,7 +95,7 @@ def status(request):
 
     def get_shard_count():
         data = requests.get('https://discordapp.com/api/v8/gateway/bot', headers={
-        "Authorization": "Bot NzQ5NDYyMTYxNzEzMjY2NzM4.X0sVBw.JdwE5vBF5cSwvgs2gqGHEq3_ELs",
+        "Authorization": "Bot TOKEN",
         "User-Agent": "DiscordBot (https://github.com/Rapptz/discord.py 1.3.0a) Python/3.7 aiohttp/3.6.1"
     })
         data.raise_for_status()
