@@ -20,21 +20,21 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-with open(os.path.join(BASE_DIR, 'token.0')) as f:
-    SECRET_KEY = f.read().strip()
+
+SECRET_KEY = "hola"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG=False
-# DEBUG=True
-ALLOWED_HOSTS = ['ruka.life', 'www.ruka.life']
-# ALLOWED_HOSTS = []
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
-SECURE_SSL_REDIRECT = True
-SECURE_HSTS_SECONDS = 31536000 # 1 year
-SECURE_HSTS_PRELOAD = True
-SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-SECURE_SSL_REDIRECT = True
+# DEBUG=False
+DEBUG=True
+# ALLOWED_HOSTS = ['ruka.life', 'www.ruka.life']
+ALLOWED_HOSTS = []
+# SESSION_COOKIE_SECURE = True
+# CSRF_COOKIE_SECURE = True
+# SECURE_SSL_REDIRECT = True
+# SECURE_HSTS_SECONDS = 31536000 # 1 year
+# SECURE_HSTS_PRELOAD = True
+# SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+# SECURE_SSL_REDIRECT = True
 # Application definition
 
 INSTALLED_APPS = [
@@ -85,16 +85,16 @@ WSGI_APPLICATION = 'ruka_web.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'bot',
-        'USER': 'admin',
-        'PASSWORD': '20demarz',
-        'HOST': 'ruka.life',
-        'PORT': '5432',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'bot',
+#         'USER': 'admin',
+#         'PASSWORD': '20demarz',
+#         'HOST': 'ruka.life',
+#         'PORT': '5432',
+#     }
+# }
 
 
 # Password validation
