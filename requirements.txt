@@ -4,3 +4,4 @@ requests
 djangorestframework
 markdown 
 django-filter
+colorthief
