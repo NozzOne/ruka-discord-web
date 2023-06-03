@@ -31,7 +31,7 @@ Ruka Discord Web es un repositorio que proporciona una interfaz web para visuali
 
 1. Inicia el servidor Django localmente utilizando el siguiente comando:
    ```
-   python manage.py runserver
+   python manage.py src/runserver
    ```
 2. Abre tu navegador web y accede a la URL `http://localhost:8000` para ver la interfaz web de Ruka Discord.
 3. Además de ver las cartas, puedes hacer clic en la sección de estado para ver el estado actual del bot Ruka.
@@ -51,6 +51,4 @@ Este proyecto está bajo la Licencia [MIT](https://opensource.org/licenses/MIT).
 
 ## Contacto
 
-Si tienes alguna pregunta o sugerencia sobre este proyecto, no dudes en ponerte en contacto con el equipo de desarrollo en [correo electrónico de contacto].
-
-Espero que esta actualización del README refleje la funcionalidad adicional de ver el estado del bot Ruka. Asegúrate de personalizarlo según las necesidades de tu proyecto y proporcionar información relevante para que los usuarios comprendan y utilicen tu interfaz web de Ruka Discord.
+Si tienes alguna pregunta o sugerencia sobre este proyecto, no dudes en ponerte en contacto con el equipo de desarrollo en [Valentin.marquez@correoaiep.cl].
