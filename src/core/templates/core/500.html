@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
+    
+    <link rel="stylesheet" href="{% static 'core/css/estilos.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/awesome/fonts.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/awesome/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'core/img/icon.png' %}">
+
+    <title>Error 500 | Ruka Bot</title>
+</head>
+<body>
+    {% include './partials/_nav.html' %}
+    <section class="main">
+        <div style='position: absolute; left: 50%; top: 50%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%);'> 
+            <h1 style="font-family: 'Roboto', sans-serif; font-size: 56px; font-weight: bold; line-height: 54px; max-width: 100%; padding-top: 0px; padding-bottom: 0px;">Error 500</h1>
+            <center><h2 style="font-family: 'Courier New', Courier, monospace;">Internal Server Error</h2></center>
+    
+        </div>
+    </section>
+</body>
+</html>

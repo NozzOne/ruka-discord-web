@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
+    <link rel="stylesheet" href="{% static 'core/css/estilos.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/awesome/fonts.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/awesome/all.min.css' %}">
+    
+
+
+    {% if typem == True %}
+        <title>{{user.username}} | Ruka Bot</title>
+    {% elif typem == False %}
+        <title>{{member.username}} | Ruka Bot</title>
+    {% endif %}
+</head>
+<body>
+    {% include './partials/_nav.html'%}
+    {% if typem == True %}
+        <div class="user-container">
+            {% if banner == False %}
+                <div class="user-profile" style="background-color:rgb{{ color }};">
+            {% elif banner == True %}
+                <div class="user-profile" style="background-blend-mode: soft-light;background-repeat: no-repeat; background-size: cover; background-position-y: center; background-image: url('https://cdn.discordapp.com/banners/{{user.id}}/{{color}}?size=1024');">
+            {% endif %}
+                <div class="user-profile-info">
+                    <div class="user-profile-avatar">
+                        {% if user.avatar is None %}
+                        <img src="https://discord.com/assets/1f0bfc0865d324c2587920a7d80c609b.png"  alt="{{user.name}}">
+                        {% else %}
+                        <img src="https://cdn.discordapp.com/avatars/{{user.id}}/{{user.avatar}}?size=256" alt="{{user.name}}" >
+                        {% endif %}
+                        <h1>{{user.username}}</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% elif typem == False %}
+        <div class="user-container">
+            {% if banner == False %}
+                <div class="user-profile" style="background-color:rgb{{ color }};">
+            {% elif banner == True %}
+                <div class="user-profile" style="background-blend-mode: soft-light; background-repeat: no-repeat; background-size: cover; background-position-y: center; background-image: url('https://cdn.discordapp.com/banners/{{member.id}}/{{color}}?size=1024');">
+            {% endif %}
+
+                <div class="user-profile-info">
+                    <div class="user-profile-avatar">
+                        {% if member.avatar is None %}
+                        <img src="https://discord.com/assets/1f0bfc0865d324c2587920a7d80c609b.png"  alt="{{member.name}}">
+                        {% else %}
+                        <img src="https://cdn.discordapp.com/avatars/{{member.id}}/{{member.avatar}}?size=256" alt="{{member.name}}" >
+                        {% endif %}
+                        <h1>{{member.username}}</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+    <div class="user-profile-tabs">
+        <button class="tablink" onclick="openPage('coleccion', this)" autofocus style="color:white;border-bottom:2px rgb{{color}} solid;" id="defaultOpen">Colección</button>
+        <!-- <button class="tablink" onclick="openPage('whislist', this)" >Lista de deseos</button>
+        <button class="tablink" onclick="openPage('inventario', this)">Inventario</button> -->
+    </div>
+
+
+    <div id="coleccion" class="tabcontent coleccion">
+        <div class="table-container">
+            <table class="table" id="table_id">
+                <thead>
+                    <tr class="th-container noselect"> 
+                        <th data-orderable="false" style="color: #00a1e3; border-bottom: 2px #00a1e3 solid;">Imagen</th>
+                        <th style="color: #00a1e3; border-bottom: 2px #00a1e3 solid;">Codigo</th>
+                        <th style="color: #00a1e3; border-bottom: 2px #00a1e3 solid;">Nombre</th>
+                        <th style="color: #00a1e3; border-bottom: 2px #00a1e3 solid;">Aparición</th>
+                        <th style="color: #00a1e3; border-bottom: 2px #00a1e3 solid;">Favorita</th>
+                    </tr>
+                </thead>
+                <tbody id="search-results">
+                    {% for card in cards %}
+                        <tr id="search-results">
+                        <td style="border-bottom: 2px #00a1e3 solid;" data-label="Imagen" class="hidde"><img style="opacity:0" onload="showme(this)" onerror ="imgError(this);" data-src="{% url 'card_image' card.card_id %}" src="{% url 'card_image' card.card_id %}" alt="{{ card.card__name }}" class="lazyload myImg img-animation" loading="lazy"/></td>
+                        <td style="border-bottom: 2px #00a1e3 solid;" data-label="Codigo"><a onclick="copyURL(); copy(this);" class="copyte">{{ card.code_id }}</a></td>
+                        <td style="border-bottom: 2px #00a1e3 solid;" data-label="Nombre">{{ card.card__name }}</td>
+                        <td style="border-bottom: 2px #00a1e3 solid;" data-label="Aparicion">{{ card.card__series }}</td>
+                        <td style="border-bottom: 2px #00a1e3 solid;" data-label="Favorita" class="hidden ultima">{{ card.favorite }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="whislist" class="tabcontent">
+        <!-- <h1>chao</h1> -->
+    </div>
+
+    <div id="inventario" class="tabcontent inventario">
+        <!-- <div class="backpack">
+            <svg id="Layer_1" enable-background="new 0 0 64 64" height="512" viewBox="0 0 64 64" width="512" xmlns="http://www.w3.org/2000/svg"><g><g><path d="m51 41v-31c0-2.209-1.791-4-4-4h6c2.209 0 4 1.791 4 4v31c0 1.657-1.343 3-3 3-1.657 0-3-1.343-3-3z" fill="#353744"/></g><path d="m56 44h-2c-.353 0-.686-.072-1-.184v4.184c0 2.953-1.613 5.532-4 6.917v1.083c0 2.209-1.791 4-4 4 6.617 0 12-5.383 12-12v-4.184c-.314.112-.647.184-1 .184z" fill="#808080"/><g><path d="m53 4c-3.314 0-6 2.686-6 6v14h2v-14c0-2.209 1.791-4 4-4s4 1.791 4 4v31c0 1.657-1.343 3-3 3h2c1.657 0 3-1.343 3-3v-31c0-3.314-2.686-6-6-6z" fill="#353744"/></g><g><g><path d="m35 24v-14c0-2.209-1.791-4-4-4h6c2.209 0 4 1.791 4 4v14z" fill="#353744"/></g><g><path d="m37 4h-6c-3.314 0-6 2.686-6 6v14h6v-14c0-3.314 2.686-6 6-6z" fill="#55525b"/></g><g><path d="m37 4c-3.314 0-6 2.686-6 6v14h2v-14c0-2.209 1.791-4 4-4s4 1.791 4 4v14h2v-14c0-3.314-2.686-6-6-6z" fill="#353744"/></g></g><g><g><path d="m51 41v-31c0-2.209-1.791-4-4-4h6c2.209 0 4 1.791 4 4v31c0 1.657-1.343 3-3 3-1.657 0-3-1.343-3-3z" fill="#353744"/></g><g><path d="m53 4h-6c-3.314 0-6 2.686-6 6v14h6v-14c0-3.314 2.686-6 6-6z" fill="#55525b"/></g></g><g><path d="m33 8h-10c-8.837 0-16 7.163-16 16v32c0 2.209 1.791 4 4 4h34c2.209 0 4-1.791 4-4v-32c0-8.837-7.163-16-16-16z" fill="#5c76b2"/></g><g><path d="m23 8c-8.837 0-16 7.163-16 16v32c0 2.209 1.791 4 4 4h24c2.209 0 4-1.791 4-4v-32c0-8.837-7.163-16-16-16z" fill="#6fa4d8"/></g><g><path d="m31 30h-22c-2.209 0-4 1.791-4 4v18c0 2.209 1.791 4 4 4h22c2.209 0 4-1.791 4-4v-18c0-2.209-1.791-4-4-4z" fill="#f68820"/></g><g><path d="m25 30h-16c-2.209 0-4 1.791-4 4v18c0 2.209 1.791 4 4 4h16c2.209 0 4-1.791 4-4v-18c0-2.209-1.791-4-4-4z" fill="#fbbe18"/></g><g><path d="m5 36h24v2h-24z" fill="#f68820"/></g><g><path d="m29.5 20h-13.5c-.552 0-1-.448-1-1 0-.552.448-1 1-1h13.5c.552 0 1 .448 1 1 0 .552-.448 1-1 1z" fill="#dbdee3"/></g><g><path d="m43 24v3c0 .552.448 1 1 1 .552 0 1-.448 1-1v-3c0-8.837-7.163-16-16-16h-2c8.837 0 16 7.163 16 16z" fill="#55525b"/></g></g></svg>
+        </div>
+        <div class="inventario-lista">
+            hola
+        </div> -->
+    </div>
+
+
+    <style>
+        .paginate_button{
+            color: white !important;
+        }
+    </style>
+    <div id="myModal" class="modal">
+
+        <!-- The Close Button -->
+        <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
+  
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+  
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+      </div>
+      <div id="myModal" class="modal">
+  
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+  
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img02">
+  
+  
+      </div>
+      <div class="button-container noselect">
+        <p class="button copyAlert"  style="background-color: rgb{{color}};">Copiado</p>
+    </div>
+
+    <link rel="stylesheet" href="{% static 'core/css/awesome/datatables.css' %}">
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <script type='text/javascript'>
+        function showme(elem)
+        {
+        $(elem).css("opacity",1)
+        }
+        function imgError(image) {
+            if (!image.hasOwnProperty('retryCount')){
+            image.retryCount = 0;
+            }
+
+            if (image.retryCount < 10){
+            setTimeout(function (){
+                image.src += '?' + +new Date;
+                image.retryCount += 1;
+            }, 1000);
+            }
+        }
+      </script>
+    <script>
+        $(document).ready( function () {
+            
+            var table = $('#table_id').DataTable({
+                "autoWidth": false,
+                "language": {
+                    "decimal":        "",
+                    "emptyTable":     "No hay datos disponibles en la Coleccion",
+                    "info":           "Mostrando _START_ de _END_",
+                    "infoEmpty":      "Mostrando 0 de 0",
+                    "infoFiltered":   "(Filtando _MAX_ cartas)",
+                    "infoPostFix":    "",
+                    "thousands":      ",",
+                    "lengthMenu":     "_MENU_",
+                    "loadingRecords": "Cargando...",
+                    "processing":     "Procesando...",
+                    "search":         '',
+                    "searchPlaceholder": "Buscador",
+                    "zeroRecords":    "No se encontraron cartas que coincidan",
+                    "paginate": {
+                        "first":      "Primero",
+                        "last":       "Ultimo",
+                        "next":       "Siguiente",
+                        "previous":   "Anterior"
+                    },
+                    "aria": {
+                        "sortAscending":  ": activar para ordenar la columna ascendente",
+                        "sortDescending": ": activar para ordenar la columna descendente"
+                    }
+                },  
+            });
+
+            table.on('page.dt', function() {
+                $('html, body').animate({
+                    scrollTop: $(".dataTables_wrapper tbody tr").offset().top
+                }, 'slow');
+            });
+
+        });
+        function openPage(pageName, elmnt) {
+            // Hide all elements with class="tabcontent" by default */
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+
+            // Remove the background color of all tablinks/buttons
+            tablinks = document.getElementsByClassName("tablink");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].style.backgroundColor = "";
+                tablinks[i].style.borderBottom = "none";
+                tablinks[i].style.color = ""
+
+            }
+
+            // Show the specific tab content
+            document.getElementById(pageName).style.display = "flex";
+            elmnt.style.borderBottom = "2px rgb{{color}} solid";
+            elmnt.style.color = "white"
+            }
+
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+    </script>
+<script>
+    if ("loading" in HTMLImageElement.prototype) {
+      // Si el navegador soporta lazy-load, tomamos todas las imágenes que tienen la clase
+      // `lazyload`, obtenemos el valor de su atributo `data-src` y lo inyectamos en el `src`.
+      const images = document.querySelectorAll("img.lazyload");
+      images.forEach((img) => {
+        img.src = img.dataset.src;
+      });
+    } else {
+      // Importamos dinámicamente la libreria `lazysizes`
+      let script = document.createElement("script");
+      script.async = true;
+      script.src =
+        "https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.0/lazysizes.min.js";
+      document.body.appendChild(script);
+    }
+  </script>
+    <script src="{% static 'core/js/image_viewer.js' %}"></script>
+</body>
+</html>

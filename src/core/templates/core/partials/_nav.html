@@ -1,0 +1,25 @@
+<div class="nav-container">
+    <div class="logo">
+        <a class="nav-logo" href="{% url 'home' %}">Ruka</a>
+    </div>
+    <nav class="site-nav">
+        <a href="{% url 'home' %}"><i class="icon fas fa-home"></i>Inicio</a>
+        <a href="{% url 'comandos' %}"><i class="icon fas fa-terminal"></i>Comandos</a>
+        <a href="https://paypal.me/nozz697?locale.x=es_XC"><i class="icon fas fa-donate"></i>Donar</a>
+        <a href="{% url 'status' %}"><i class="fas fa-signal"></i>Estado</a>
+        <a href="#"><i class="icon fab fa-discord"></i>Servidor</a>
+
+        {% if 'username' in user %}
+            <a class="btn-invite" href="{% url 'coleccion' user.id %}"><i class="icon fas fa-list-ul"></i>Colección</a>
+            <a href="{% url 'logout' %}" style="margin: 10px;"><i class="icon fas fa-sign-out-alt"></i>Salir</a>
+        {% else %}
+            <a class="btn-invite" href="{% url 'oauth_login' %}" style="color: white;"><i class="icon fas fa-list-ul"></i>Colección</a>
+        {% endif %}
+    </nav>
+    <div class="hamburger">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </div>
+</div>
+<script src="../../../static/core/js/nav.js"></script>

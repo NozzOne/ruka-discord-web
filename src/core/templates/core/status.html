@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
+
+    <link rel="stylesheet" href="{% static 'core/css/estilos.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/awesome/fonts.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/awesome/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'core/img/icon.png' %}">
+
+
+    <title>Estado | Ruka Bot</title>
+</head>
+<body>
+    {% include './partials/_nav.html' %}
+    
+    <div class="status-container">
+        <div class="status-main">
+            <div class="status-left">
+                <div class="status-overview">
+                    <div class="status-title">
+                        <h1>Ruka Bot Estado</h1>
+                    </div>
+                    
+                    <h2><strong>Servidores:</strong> {{guilds.shard_servers__sum}} </h2>
+                    <h2><strong>Usuarios:</strong> {{users}}</h2> 
+                    <h2><strong>Fragmentos:</strong> {{shards}}/25</h2>
+                    <h2><strong>Estado:</strong>{{status}}</h2>
+                </div>
+            </div>
+            <div class="status-right">
+                <div class="status-overview">
+                    <h1>Ruka Bot Resumen</h1>
+                    <h2>Servidores: </h2>
+                    <h2>Usuarios:</h2>
+                    <h2>Fragmentos:</h2>
+                </div>
+            </div>
+        </div>
+        <h1 style="  color: white;
+        font-size: 30px;
+        font-weight: bold;
+        font-family: 'Roboto', sans-serif;">Fragmentos:</h1>
+        <div class="shards-container" style="margin-bottom: 100px;">
+            {% for shard in shard_list %}
+                <div class="tooltip" style="width: 150px;">
+                    <div class="tooltip-status" style="margin-bottom: 10px; border-bottom: 2px #00a1e3 solid; display: inline-flex;">
+                        <h4 id="name">{{shard.name}}</h4>
+                        <div style="flex-grow: 1;text-align: right; margin-bottom: 10px;">
+                            {% if shard.status == 'Desconectado'%}
+                                <i style="color: #d50000;" class="fas fa-circle"></i>
+                            {% elif shard.status == 'Reiniciando'%}
+                                <i style="color: #ffd600;" class="fas fa-circle"></i>
+                            {% else %}
+                                <i style="color: #00c853;" class="fas fa-circle"></i>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <h5><strong>Shard id:</strong> {{shard.shard_id|add:"-1"}}</h5>
+                    <h5><strong>Ping:</strong> {{shard.shard_ping}}</h5>
+                    <h5><strong>Servidores:</strong> {{shard.shard_servers}}</h5>
+                    <h5><strong>Estado:</strong> {{shard.status}}</h5>
+                </div>
+                
+            {% endfor %}
+        </div>
+    </div>
+
+</body>
+</html>
